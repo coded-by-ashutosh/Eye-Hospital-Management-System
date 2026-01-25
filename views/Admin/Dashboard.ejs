@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <%- include('../CDN/bootstrap.ejs') %>
+</head>
+
+<body>
+
+
+
+    <div class="d-flex">
+
+        <%- include('../Header/Admin_Header.ejs') %>
+
+            
+            <div class="flex-grow-1 bg-light px-3 py-4">
+
+                <div class="container-fluid">
+
+                   
+                    <h1 class="admin-dashboard-heading fw-bold mb-4">Admin Dashboard</h1>
+
+                   
+                    <div class="row g-4 mb-5">
+
+                        <div class="col-md-3">
+                            <div class="eyra-admin-stat-card  bg-primary">
+                                <h3>788</h3>
+                                <p>Total Patients</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="eyra-admin-stat-card bg-success">
+                                <h3>274</h3>
+                                <p>Book Appointment</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="eyra-admin-stat-card bg-info">
+                                <h3>246</h3>
+                                <p>Publish Notifications</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="eyra-admin-stat-card bg-warning">
+                                <h3 id="currentDate"></h3>
+                                 <h3></h3>
+                                 <p>Date</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                   
+                   
+
+                    
+
+                </div>
+            </div>
+
+    </div>
+    
+
+    <script>
+      const today=new Date();
+      const formatted=today.getDate()+"-"+(today.getMonth()+1+"-"+today.getFullYear());
+    //   console.log("current date is"+formatted);
+      document.getElementById("currentDate").innerText=formatted;
+    </script>
+
+
+
+
+    <%- include('../chat/chat.ejs') %>
+    <%- include('../Footer/Dashboard_Footer.ejs') %>
+    <%- include('../CDN/javascript.ejs') %>
+</body>
+
+</html>

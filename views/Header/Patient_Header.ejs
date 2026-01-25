@@ -1,0 +1,70 @@
+<div class="d-flex eyra-patient-layout">
+
+ 
+  <aside class="eyra-patient-sidebar">
+
+    
+    <div class="eyra-sidebar-logo">
+  <a href="/Patient_Dashboard" class="d-flex align-items-center text-decoration-none">
+
+    
+    <img src="/public/images/logo.png"
+         alt="Eyra Logo"
+         class="eyra-logo-icon me-2">
+
+    
+    <div class="eyra-logo-text-wrapper">
+      <span class="eyra-logo-text">EYRA</span>
+      <small class="eyra-logo-tagline">Eye Care Center</small>
+    </div>
+
+  </a>
+</div>
+
+
+    <!-- User -->
+    <!-- <div class="eyra-sidebar-user text-center">
+      <div class="eyra-user-avatar">A</div>
+      <p class="eyra-user-name">Ashutosh</p>
+    </div> -->
+
+    <!-- Menu -->
+    <ul class="eyra-sidebar-menu">
+      <li><a href="/Patient_Dashboard"><i class="bi bi-house-door"></i> Home</a></li>
+      <li><a href="/Patient_profile"><i class="bi bi-person"></i> Profile</a></li>
+      <li><a href="#"><i class="bi bi-chat-dots"></i> My Enquiry</a></li>
+      <li><a href="/Patient_Appointment"><i class="bi bi-calendar-check"></i> Appointments</a></li>
+      <li><a href="#"><i class="bi bi-file-medical"></i> Medical History</a></li>
+      <li><a href="#"><i class="bi bi-capsule"></i> Medicine Prescription</a></li>
+      <li><a href="/Patient_settings"><i class="bi bi-gear"></i> Settings</a></li>
+
+      <li class="eyra-logout">
+        <a href="/Patient_logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+      </li>
+
+      <!-- <div class="eyra-sidebar-footer">
+  
+</div> -->
+
+    </ul>
+
+
+
+    
+
+  </aside>
+
+ <!-- Toggle Button -->
+   <button class="eyra-sidebar-arrow" onclick="toggleSidebar()">
+    ❯
+  </button> 
+
+</div>
+
+<script>
+  function toggleSidebar() {
+    document
+      .querySelector('.eyra-patient-sidebar')
+      .classList.toggle('open');
+  }
+</script>

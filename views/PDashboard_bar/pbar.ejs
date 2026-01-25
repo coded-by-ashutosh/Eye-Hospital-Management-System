@@ -1,0 +1,85 @@
+<div class="flex-grow-1 bg-light px-3 py-4">
+
+                <div class="container-fluid">
+
+
+                    <h1 class="dashboard-heading fw-bold mb-4">Patient Dashboard</h1>
+
+
+                    <div class="row g-4 mb-5">
+
+                        <div class="col-md-3">
+                            <div class="eyra-dash-stat-card  bg-primary">
+                                <h3>8</h3>
+                                <p>Total Enquiries</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="eyra-dash-stat-card bg-success">
+                                <h3><%=total_Appoint%></h3>
+                                <p>Appointments</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="eyra-dash-stat-card bg-info">
+                                <h3>246</h3>
+                                <p>Medical Records</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="eyra-dash-stat-card bg-warning">
+                                <h3 id="currentDate"></h3>
+                                <h3></h3>
+                                <p>Date</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row g-4 mb-5">
+
+                        <div class="col-lg-8">
+                            <div class="eyra-chart-box">
+                                <h5 class="mb-3">Appointments Overview</h5>
+                                <canvas id="appointmentChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="eyra-chart-box">
+                                <h5 class="mb-5">Health Records</h5>
+                                <canvas id="healthChart"></canvas>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="eyra-notification-box">
+                        <h5 class="mb-3">Latest Updates</h5>
+                        <ul class="eyra-notification-list">
+                            <!-- <li><i class="bi bi-circle-fill me-2"></i> Free Eye Checkup Camp – 26 Dec 2025</li>
+                            <li><i class="bi bi-circle-fill me-2"></i> Appointment Reminder Available</li>
+                            <li><i class="bi bi-circle-fill me-2"></i> New Prescription Added</li>
+                            <li><i class="bi bi-circle-fill me-2"></i> Medical Report Uploaded</li> -->
+
+                    <% for(var i=0;i<data.length;i++) { %>
+                          <li><i class="bi bi-circle-fill me-2"></i><%=data[i].title%></li>  
+                    <% } %>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+<script>
+    const today=new Date();
+    const formatted=today.getDate()+"-"+(today.getMonth()+1+"-"+today.getFullYear());
+    // console.log("current date is"+formatted);
+    document.getElementById("currentDate").innerText=formatted;
+</script>

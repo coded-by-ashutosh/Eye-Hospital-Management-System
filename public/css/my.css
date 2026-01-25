@@ -1,0 +1,2683 @@
+/* BODY SPACING  */
+/* Adjust total margin based on top-header + navbar heights */
+body {
+  margin-top: 120px;
+  /* Change this as needed */
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* TOP HEADER */
+.eyra-top-header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #0d4a72, #145E8F);
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  z-index: 1040;
+  padding: 12px 0;
+  /* Adjust this to increase/decrease height */
+}
+
+.eyra-top-header span {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.eyra-top-header img {
+  margin-right: 5px;
+}
+
+.eyra-header-left i {
+  color: rgb(228, 13, 56);
+}
+
+.eyra-location-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.eyra-location-link:hover {
+  color: #2ECC71;
+  text-decoration: underline;
+}
+
+
+.eyra-top-header a.eyra-cta-btn {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 3px 12px;
+}
+
+.eyra-top-header a.eyra-cta-btn:hover {
+  background-color: #27AE60;
+  border-color: #27AE60;
+  color: #ffffff;
+}
+
+
+
+/* NAVBAR  */
+.eyra-navbar {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  background-color:#0B3C5D;
+  padding: 15px 0;
+  /* Adjust to change navbar height */
+}
+
+/* Push nav links right from logo */
+.eyra-nav-left {
+  margin-left: 40px;
+}
+
+/* Nav links */
+.eyra-navbar .nav-link {
+  color: #E9ECEF !important;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  margin-right: 6px;
+}
+
+.eyra-navbar .nav-link:hover {
+  color: #2ECC71 !important;
+}
+
+.eyra-navbar .nav-link.active {
+  color:  #2ECC71 !important;
+  font-weight: 600;
+}
+
+.navbar-nav .eye-donation {
+  align-self: center;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.eye-donation {
+  position: relative;
+  animation: pulseGlow 2s ease-in-out infinite;
+  font-weight: 600;
+}
+
+.nav-link.active {
+  color: #28a745 !important;
+  font-weight: 500;
+}
+
+.eyra-btn {
+  background-color: #0B3C5D!important;
+  color: white;
+}
+
+.eyra-btn {
+  background-color: #0B3C5D!important;
+  color: #fff!important;
+  border: none;
+  border: 2px solid white!important;
+}
+
+.eyra-btn:hover {
+  background-color: #fff!important;
+  color:#0B3C5D!important;
+}
+
+/* .eyra-btn.active {
+  background-color: #2ECC71;
+  color: #fff;
+  border-color: #2ECC71;
+}
+
+.eyra-btn {
+  transition: all 0.2s ease;
+}
+
+.eyra-btn:hover {
+  transform: translateY(-1px);
+} */
+
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(46, 204, 113, 0);
+    transform: scale(1.03);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+    transform: scale(1);
+  }
+}
+
+
+/* Logo Icon */
+.eyra-logo-icon {
+  height: 55px;
+  width: auto;
+}
+
+
+.eyra-logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+
+.eyra-logo-tagline {
+  font-size: 13px;
+  font-weight: 600;
+  color: #CFE3F5;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+
+/*  BUTTONS  */
+.btn-success,
+.eyra-cta-btn {
+  background-color: #2ECC71;
+  border-color: #2ECC71;
+}
+
+.btn-success:hover,
+.eyra-cta-btn:hover {
+  background-color: #27AE60;
+  border-color: #27AE60;
+}
+
+.navbar-nav .eyra-btn{
+  background-color: #0D6EFD;
+  color: whitesmoke;
+  border:2px solid whitesmoke;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.navbar-nav .eyra-btn:hover{
+  background-color: whitesmoke;
+  color: #0D6EFD;
+  border:2px solid whitesmoke;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.navbar-nav .eyra-btn.active{
+  background-color: whitesmoke;
+  color: #0D6EFD;
+  border:2px solid whitesmoke;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+
+/* FOOTER */
+.eyra-footer {
+  background-color: #0B3C5D;
+  color: #DCE6F0;
+  padding: 60px 0 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+/* Brand */
+.eyra-footer-logo {
+  height: 65px;
+  width: 100px;
+}
+
+/* Footer Brand Link */
+.eyra-footer-brand {
+  text-decoration: none;
+}
+
+.eyra-footer-logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+
+.eyra-footer-logo-tagline {
+  font-size: 16px;
+  font-weight: 600;
+  color: #CFE3F5;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+@media (min-width: 992px) {
+  .eyra-footer-brand {
+    margin-top: 35px;
+  }
+}
+
+
+/* Titles */
+.eyra-footer-title {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Links */
+.eyra-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eyra-footer-links li {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.eyra-footer-links a {
+  color: #DCE6F0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.eyra-footer-links a:hover {
+  color: #2ECC71;
+}
+
+/* Contact */
+.eyra-footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eyra-footer-contact li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.eyra-footer-contact i {
+  margin-right: 8px;
+  color: #2ECC71;
+}
+
+/* Bottom Bar */
+.eyra-footer-bottom {
+  background-color: #082F49;
+  margin-top: 40px;
+  padding: 12px 0;
+}
+
+.eyra-footer-bottom p {
+  color: #BFD4E6;
+  font-size: 13px;
+}
+
+/* ---------- MODAL FIX + BASE ---------- */
+#bookAppointmentModal .modal-content {
+  border-radius: 12px;
+  overflow: hidden; /* Fix white corner issue */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover lift effect */
+#bookAppointmentModal .modal-content:hover {
+  box-shadow: 0 20px 45px rgba(13, 110, 253, 0.25);
+}
+
+/* ---------- HEADER ---------- */
+#bookAppointmentModal .modal-header {
+  background: linear-gradient(135deg, #0D6EFD, #0b5ed7);
+  border-bottom: none;
+}
+
+#bookAppointmentModal .modal-title {
+  color: #fff;
+}
+
+/* ---------- FORM CONTROLS ---------- */
+#bookAppointmentModal .form-control,
+#bookAppointmentModal textarea {
+  border-radius: 8px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Focus interaction */
+#bookAppointmentModal .form-control:focus,
+#bookAppointmentModal textarea:focus {
+  border-color: #0D6EFD;
+  box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+}
+
+/* ---------- SUBMIT BUTTON ---------- */
+#bookAppointmentModal .eyra-submit-btn {
+  background-color: #0D6EFD;
+  font-size: 20px;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 40px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Button hover */
+#bookAppointmentModal .eyra-submit-btn:hover {
+  background-color: #0b5ed7;
+  box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
+}
+
+/* Button click */
+#bookAppointmentModal .eyra-submit-btn:active {
+  transform: scale(0.96);
+}
+
+
+.eyra-top-header {
+  background-color: #0B3C5D;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 0;
+}
+
+.eyra-header-left,
+.eyra-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.eyra-header-left i {
+  color: #e40d38;
+}
+
+.eyra-cta-btn {
+  padding: 4px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+@media (max-width: 991px) {
+  .eyra-timing{
+    display: none !important;
+  }
+  .eyra-top-header {
+    font-size: 14px;
+  }
+  .eyra-final-cta .buttons{
+    padding: 6px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+  .eyra-location {
+    display: none !important;
+  }
+
+  .eyra-top-header .container {
+    justify-content: space-between;
+  }
+
+  .eyra-cta-btn {
+    padding: 6px 16px;
+    font-size: 14px;
+  }
+}
+
+/* MOBILE & TABLET */
+@media (max-width: 991px) {
+
+  .eyra-navbar .container {
+    justify-content: flex-start !important;
+  }
+
+  .navbar-toggler {
+    margin-left: 0 !important;
+  }
+
+  .navbar-brand {
+    margin-right: auto !important;
+  }
+
+  .eye-donation {
+    margin-right: auto !important;
+  }
+}
+
+
+
+
+
+/* Layout */
+.eyra-patient-layout {
+  display:flex;
+  min-height: 100vh;
+  /* width: 100%; */
+  overflow: hidden; /* VERY IMPORTANT */
+  background-color: #F4F8FB;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); 
+  transition: background 0.3s ease;
+  background: rgba(46, 204, 113, 0.08);
+  color: #ffffff;
+  border-bottom-color: #2ECC71;
+  cursor: default;
+  position: relative;
+  z-index: 2;
+  border-bottom: none;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.25);
+}
+
+
+ 
+
+/* Sidebar */
+.eyra-patient-sidebar {
+  width: 260px;
+  background-color: #0B3C5D;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 25px 15px;
+  display: flex;
+  overflow-y: auto; /* Sidebar scrolls */
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: transform 0.4s ease;
+}
+
+
+.eyra-sidebar-logo {
+  position: relative;
+  padding-bottom: 22px;
+  padding-left: 10px;
+  margin-bottom: 18px;
+}
+
+
+.eyra-sidebar-logo::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #2ECC71,
+    transparent
+  );
+
+  /* Glow effect */
+  /* box-shadow: 0 0 6px rgba(46, 204, 113, 0.7);
+  opacity: 0.9; */
+}
+
+
+
+
+/* Logo Icon */
+.eyra-sidebar-logo .eyra-logo-icon {
+  height: 55px;
+  width: auto;
+}
+
+/* Text Wrapper */
+.eyra-logo-text-wrapper {
+  line-height: 1.1;
+}
+
+/* EYRA Text */
+.eyra-logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  display: block;
+}
+
+/* Tagline */
+.eyra-logo-tagline {
+  font-size: 13px;
+  font-weight: 600;
+  color: #CFE3F5;
+  letter-spacing: 0.8px;
+}
+
+
+/* User */
+.eyra-sidebar-user {
+  margin: 30px 0;
+}
+
+.eyra-user-avatar {
+  width: 60px;
+  height: 60px;
+  background-color: #2ECC71;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+}
+
+.eyra-user-name {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Menu */
+.eyra-sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eyra-sidebar-menu li {
+  margin-bottom: 8px;
+}
+
+/* Links */
+.eyra-sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  color: #E5E7EB;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.eyra-sidebar-menu a:hover {
+  background: rgba(255,255,255,0.1);
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+/* Active (later you can add) */
+.eyra-sidebar-menu a.active {
+  background-color: #2ECC71;
+  color: #ffffff;
+}
+
+/* Logout */
+.eyra-logout {
+  margin-top: auto;
+}
+
+.eyra-logout a {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ============================= */
+/* DASHBOARD CONTENT */
+/* ============================= */
+/* Whatever content comes next to sidebar */
+.eyra-patient-layout > :not(.eyra-patient-sidebar) {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto; /* Content scrolls */
+  background: #F4F8FB;
+}
+
+/* ============================= */
+/* TOGGLE BUTTON (ARROW) */
+/* ============================= */
+
+.eyra-sidebar-arrow {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 1200;
+
+  width: 22px;
+  height: 28px;
+  border-top-right-radius:12px;
+  border-bottom-right-radius: 10px;
+  background: transparent;
+
+  border: none;
+  color: #082F49;
+  font-size: 16px;
+  cursor: pointer;
+
+  display: none; /* default hidden, only small screens */
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.35s ease;
+}
+
+.eyra-sidebar-arrow:hover {
+  background: rgba(11, 60, 93, 0.6);
+  color: #ffffff; /* sidebar bg in rgba */
+}
+
+/* Small screens: sidebar collapsible */
+@media (max-width: 992px) {
+
+  .eyra-patient-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+
+    /* hide sidebar initially */
+    transform: translateX(-100%);
+    z-index: 1100;
+  }
+
+  .eyra-patient-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .eyra-dashboard-content {
+    margin-left: 0; /* full width */
+  }
+
+  /* Show toggle button */
+  .eyra-sidebar-arrow {
+    display: flex;
+  }
+}
+
+
+
+.dashboard-heading {
+  color: #0B3C5D;
+}
+/* Stat Cards */
+.eyra-dash-stat-card {
+  padding: 25px;
+  border-radius: 16px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease;
+}
+
+.eyra-dash-stat-card:hover {
+  transform: translateY(-6px);
+}
+
+.eyra-dash-stat-card h3 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.eyra-dash-stat-card p {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+/* Chart Box */
+.eyra-chart-box {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* Notifications */
+.eyra-notification-box {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+}
+
+.eyra-notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eyra-notification-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 15px;
+  color: #374151;
+}
+
+.eyra-notification-list li:last-child {
+  border-bottom: none;
+}
+
+.bi-circle-fill {
+  color:#0D6EFD;
+  font-size: 10px;
+}
+
+/* Login Image */
+.eyra-login-img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: -39px;
+  z-index: 2;
+  position: relative;
+}
+
+/* Login Card */
+.eyra-login-card {
+  border-radius: 10px!important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15)!important;
+  border: none!important;
+  padding-top: 26px!important;
+  background-color:#0D6EFD!important;
+}
+
+/* Card Header */
+.eyra-login-header {
+  background-color: transparent;
+  border-bottom: none;
+}
+
+.eyra-login-header h3 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.eyra-login-subtext {
+  font-size: 14px;
+  color: #CFE3F5;
+}
+
+.card-body {
+  padding: 20px 40px!important; 
+  background-color: white;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* Inputs */
+.eyra-login-card .form-control {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  transition: all 0.3s ease;
+}
+
+.eyra-login-card .form-control:focus {
+  border-color: #0D6EFD;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+/* Login Button */
+.eyra-login-btn {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px!important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eyra-login-btn:hover {
+  box-shadow: 0 8px 22px rgba(13, 110, 253, 0.35);
+}
+
+/* Links */
+.eyra-login-link {
+  color: #0D6EFD;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.eyra-login-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+/* @media (max-width: 576px) {
+  .eyra-login-img {
+    width: 140px;
+    height: 140px;
+    margin-bottom: -50px;
+  }
+} */
+
+@media (max-width: 991px) {
+   .eyra-login-img {
+    display: none;
+   }
+}
+
+/* Register  */
+.eyra-floating-image {
+  position: absolute;
+  left: -266px;        /* push image to LEFT */
+  bottom: 0;           /* align with card bottom */
+  width: 320px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+  margin-bottom: 160px;
+}
+
+
+/* Safety for smaller screens */
+@media (max-width: 991px) {
+  .eyra-floating-image {
+    display: none;
+  }
+}
+
+
+.eyra-register-card {
+   position: relative;
+  border-radius: 10px!important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15)!important;
+  border: none!important;
+  padding-top: 26px!important;
+  background-color:#0D6EFD!important;
+
+  width: 100%;
+  max-width: 620px;   /* desktop size */
+  margin: 0 auto;     /* center card */
+}
+
+
+/* Card Header */
+.eyra-register-header {
+  background-color: transparent;
+  border-bottom: none;
+}
+
+.eyra-register-header h3 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.eyra-register-subtext {
+  font-size: 14px;
+  color: #CFE3F5;
+}
+
+.eyra-register-card-body {
+  padding: 30px 55px!important; 
+  background-color: white;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* Inputs */
+.eyra-register-card .form-control {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  transition: all 0.3s ease;
+}
+
+.eyra-register-card .form-control:focus {
+  border-color: #0D6EFD;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+/* Register Button */
+.eyra-register-btn {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px!important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eyra-register-btn:hover {
+  box-shadow: 0 8px 22px rgba(13, 110, 253, 0.35);
+}
+
+/* Links */
+.eyra-register-link {
+  color: #0D6EFD;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.eyra-register-link:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE FIX */
+@media (max-width: 991px) {
+  .eyra-register-card {
+    max-width: 560px;
+  }
+
+  .eyra-register-card-body {
+    padding: 28px 48px!important;
+  }
+}
+
+@media (max-width: 576px) {
+  .eyra-register-card {
+    max-width: 100%;
+  }
+
+  .eyra-register-card-body {
+    padding: 22px!important;
+  }
+}
+
+
+/* Responsive */
+/* @media (max-width: 576px) {
+  .eyra-login-img {
+    width: 140px;
+    height: 140px;
+    margin-bottom: -50px;
+  }
+} */
+
+
+
+/* SETTINGS CARD (same as register) */
+
+.settings-heading {
+  color: #0B3C5D;
+}
+
+.eyra-settings-card {
+  border-radius: 10px!important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+  border: none!important;
+  background-color:#0D6EFD!important;
+}
+
+/* HEADER */
+.eyra-settings-header {
+  background-color: transparent;
+  border-bottom: none;
+  padding-top: 24px;
+}
+
+.eyra-settings-header h3 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.eyra-settings-subtext {
+  font-size: 14px;
+  color: #CFE3F5;
+}
+
+/* BODY */
+.eyra-settings-card-body {
+  padding: 30px 60px;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* INPUTS */
+.eyra-settings-card .form-control {
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+
+/* BUTTON */
+.eyra-settings-btn {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px!important;
+  transition: box-shadow 0.3s ease;
+}
+
+.eyra-settings-btn:hover {
+  box-shadow: 0 8px 22px rgba(13, 110, 253, 0.35);
+}
+
+/* RESPONSIVE */
+@media (max-width: 576px) {
+  .eyra-settings-card-body {
+    padding: 24px 20px;
+  }
+}
+
+.eyra-settings-header i {
+  font-size: 2rem;
+  vertical-align: middle;
+  color: #eaf3ff;
+}
+
+
+/* Profile Complete Image */
+.eyra-profile_complete-img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: -39px;
+  z-index: 2;
+  position: relative;
+}
+
+
+/* Profile Complete Card */
+.eyra-profile_complete-card {
+  border-radius: 10px!important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15)!important;
+  border: none!important;
+  padding-top: 26px!important;
+  background-color:#0D6EFD!important;
+}
+
+/* Profile Complete Header */
+.eyra-profile_complete-header {
+  background-color: transparent;
+  border-bottom: none;
+}
+
+.eyra-profile_complete-header h3 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.eyra-profile_complete-subtext {
+  font-size: 14px;
+  color: #CFE3F5;
+}
+
+.profile_complete-card-body {
+  padding: 30px 50px!important; 
+  background-color: white;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* Inputs */
+.eyra-profile_complete-card .form-control {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  transition: all 0.3s ease;
+}
+
+.eyra-profile_complete-card .form-control:focus {
+  border-color: #0D6EFD;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+/* Profile Complete Button */
+.eyra-profile_complete-btn {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px!important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eyra-profile_complete-btn:hover {
+  box-shadow: 0 8px 22px rgba(13, 110, 253, 0.35);
+}
+
+/* Links */
+.eyra-profile_complete-link {
+  color: #0D6EFD;
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.eyra-profile_complete-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+/* @media (max-width: 576px) {
+  .eyra-login-img {
+    width: 140px;
+    height: 140px;
+    margin-bottom: -50px;
+  }
+} */
+
+@media (max-width: 991px) {
+   .eyra-profile_complete-img {
+    display: none;
+   }
+}
+
+/* Card wrapper */
+.eyra-table-card {
+  border: none;
+  border-radius: 14px!important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  border:1px solid black;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-left:5px;
+  padding-right: 5px;
+}
+
+.appointments-heading {
+  color:#0B3C5D;
+}
+
+/* Table */
+.eyra-appointment-table {
+  margin-bottom: 0;
+  border:1px solid black;
+}
+
+.eyra-appointment-table thead th {
+  background-color: #0B3C5D!important;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  padding: 14px;
+  font-size: 14px;
+}
+
+.eyra-appointment-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.eyra-appointment-table tbody tr:hover {
+  background-color: #f8faff;
+}
+
+
+.eyra-appointment-table tbody tr:focus-within {
+  outline: 2px solid rgba(13, 110, 253, 0.4);
+}
+
+.eyra-appointment-table td {
+  padding: 14px;
+  font-size: 14px;
+  color: #374151;
+  background-color: #F4F8FF !important;
+  border-top: 1px solid #e5e7eb;
+}
+
+.eyra-appointment-table td {
+  border-right: 1px solid #E5ECF6;
+}
+
+.eyra-appointment-table td:last-child {
+  border-right: none;
+}
+
+/* Soft badges */
+.date {
+  background-color: rgba(13, 110, 253, 0.12);
+  color: #0D6EFD;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+
+.time {
+  background-color: rgba(25, 135, 84, 0.12);
+  color: #198754;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+
+.date,
+.time {
+  transition: transform 0.2s ease;
+}
+
+.date:hover,
+.time:hover {
+  transform: scale(1.08);
+}
+
+.appointment-text {
+  font-size: 18px;
+}
+
+.appointment-btn {
+  background-color: #0D6EFD!important;
+  color: #fff!important;
+  border: none!important;
+  border-radius: 10px!important;
+  padding: 10px 25px!important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.appointment-btn:hover {
+  background-color: #0b5ed7!important;
+  box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
+}
+
+.appointment-message {
+  font-size: 20px;
+}
+
+/* Responsive text */
+@media (max-width: 768px) {
+  .eyra-appointment-table th,
+  .eyra-appointment-table td {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+
+/* Profile Card */
+.profile-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  max-width: 900px;
+  margin: auto;
+  animation: fadeIn 0.6s ease;
+}
+
+.profile-heading {
+  color:#0B3C5D;
+}
+
+/* Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 20px;
+}
+
+.profile-avatar {
+  height: 110px;
+  width: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #0D6EFD;
+}
+
+.profile-basic h4 {
+  margin: 0;
+  color: #0B3C5D;
+  font-weight: 600;
+}
+
+.profile-badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 20px;
+  background: rgba(13, 110, 253, 0.12);
+  color: #0D6EFD;
+  font-weight: 500;
+}
+
+/* Body */
+.profile-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.profile-item {
+  background: #F4F8FF;
+  border-radius: 12px;
+  padding: 15px;
+  transition: all 0.25s ease;
+}
+
+.profile-item:hover {
+  transform: translateY(-3px);
+  background: #EAF1FF;
+}
+
+.profile-item span {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.profile-item p {
+  margin: 4px 0 0;
+  color: #0B3C5D;
+  font-weight: 500;
+}
+
+/* Footer */
+.profile-footer {
+  margin-top: 25px;
+  background: #FFF7ED;
+  color: #92400E;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.admin-message {
+  font-size: 20px;
+}
+
+
+ /* Admin Dashboard  */
+
+.admin-dashboard-heading {
+  color: #0B3C5D;
+}
+/* Stat Cards */
+.eyra-admin-stat-card {
+  padding: 25px;
+  border-radius: 16px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease;
+}
+
+.eyra-admin-stat-card:hover {
+  transform: translateY(-6px);
+}
+
+.eyra-admin-stat-card h3 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.eyra-admin-stat-card p {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+/* Publish - Notifications */
+.publish-notifications-heading {
+  color: #0B3C5D;
+}
+
+.eyra-publish-notifications-card {
+  border-radius: 10px!important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15)!important;
+  border: none!important;
+  background-color:#0D6EFD!important;
+}
+
+/* HEADER */
+.eyra-publish-notifications-header {
+  background-color: transparent;
+  border-bottom: none;
+  padding-top: 24px;
+}
+
+.eyra-publish-notifications-header h3 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.eyra-publish-notifications-subtext {
+  font-size: 14px;
+  color: #CFE3F5;
+}
+
+/* BODY */
+.eyra-publish-notifications-card-body {
+  padding: 30px 60px;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* INPUTS */
+.eyra-publish-notifications-card .form-control {
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+
+/* BUTTON */
+.eyra-publish-notifications-btn {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px!important;
+  transition: box-shadow 0.3s ease;
+}
+
+.eyra-publish-notifications-btn:hover {
+  box-shadow: 0 8px 22px rgba(13, 110, 253, 0.35);
+}
+
+/* RESPONSIVE */
+@media (max-width: 576px) {
+  .eyra-publish-notifications-card-body {
+    padding: 24px 20px;
+  }
+}
+
+.eyra-publish-notifications-header i {
+  font-size: 2rem;
+  vertical-align: middle;
+  color: #eaf3ff;
+}
+
+/* Dashboard footer tweak */
+ /* .eyra-dashboard-footer {
+  margin-top: 1px;
+}  */
+
+
+
+/* SLIDER */
+#eyraHeroSlider {
+  margin-top: 0px; /* matches header + navbar */
+}
+
+.eyra-slide-img {
+  height: 85vh;
+  object-fit: cover;
+}
+
+/* Overlay */
+.eyra-slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 60, 93, 0.65);
+  z-index: 1;
+}
+
+/* Caption */
+.eyra-caption {
+  z-index: 2;
+  bottom: 20%;
+}
+
+.eyra-slide-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #F8F9FA;
+  font-family: 'Poppins', sans-serif;
+}
+
+.eyra-slide-text {
+  font-size: 18px;
+  color: #E9ECEF;
+  max-width: 650px;
+  margin: 10px auto 20px;
+}
+
+
+/* Button */
+.eyra-slider-btn {
+  padding: 10px 25px;
+  font-size: 16px;
+  border-radius: 30px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .eyra-slide-img {
+    height: 60vh;
+  }
+
+  .eyra-slide-title {
+    font-size: 30px;
+  }
+
+  .eyra-slide-text {
+    font-size: 15px;
+  }
+}
+
+.eyra-marquee {
+  background-color: #E3F2FD;
+  color: #0B3C5D;
+  font-weight: 600;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+/* INTRO SECTION */
+.eyra-intro-section {
+  background-color: #ffffff;
+}
+
+.eyra-intro-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0B3C5D;
+  margin-bottom: 15px;
+}
+
+.eyra-intro-text {
+  font-size: 17px;
+  color: #4B5563;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+/* Image */
+.eyra-intro-img {
+  max-width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* WHY CHOOSE US SECTION */
+.eyra-why-choose-us {
+  background-color: #EDF6FF;
+ /* Light Blue */
+}
+
+/* Section title */
+.eyra-section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0B3C5D;
+}
+
+.eyra-section-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #4B5563;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Cards */
+.eyra-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eyra-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Image */
+.eyra-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Card Body */
+.eyra-card-body {
+  padding: 20px;
+}
+
+.eyra-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0D6EFD;
+  margin-bottom: 8px;
+}
+
+.eyra-card-text {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.6;
+}
+
+
+/* FAQ Section */
+
+/* FAQ Title Strip */
+.eyra-faq-strip {
+  background-color: #E3F2FD; /* Light blue, different from marquee */
+  padding: 20px 15px;
+  border-radius: 16px;
+}
+
+.eyra-faq-strip h2 {
+  color: #0B3C5D;
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.eyra-faq-strip p {
+  color: #4B5563;
+  font-size: 16px;
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Accordion Item Base */
+.eyra-accordion .accordion-item {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0; /* Soft border */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Accordion Button */
+.eyra-accordion .accordion-button {
+  background-color: #F8FAFF; /* Light blue tint */
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 18px 22px;
+  color: #0B3C5D;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.eyra-accordion .accordion-button:hover {
+  background-color: #EEF4FF;
+  box-shadow: inset 0 0 0 1px #C7DBFF;
+}
+
+/* Active (Opened) */
+.eyra-accordion .accordion-button:not(.collapsed) {
+  background-color: #E3EEFF; /* Clear active state */
+  color: #0D6EFD;
+  box-shadow: inset 0 -2px 0 #0D6EFD;
+}
+
+/* Accordion Body */
+.eyra-accordion .accordion-body {
+  background-color: #FFFFFF;
+  border-top: 1px solid #E5E7EB;
+  font-size: 16px;
+  color: #444;
+}
+
+/* Remove default arrow */
+.eyra-accordion .accordion-button::after {
+  display: none;
+}
+
+.eyra-faq-section img{
+  margin-right: 5px;
+}
+
+
+/* FINAL CTA SECTION */
+
+.eyra-final-cta {
+  background-color: #EDF6FF;
+}
+
+.eyra-cta-title {
+  font-weight: 700;
+  color: #0B3C5D;
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+}
+
+.eyra-cta-text {
+  color: #425466;
+  font-size: 18px;
+}
+
+.eyra-cta-note {
+  font-size: 13px;
+  color: #6C757D;
+}
+
+
+
+
+
+/* HERO */
+.eyra-about-hero {
+  background: linear-gradient(135deg, #0B3C5D, #145C8F);
+  color: #fff;
+  padding: 50px 0;
+  justify-content: center;
+}
+
+
+.eyra-hero-title {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.eyra-hero-text {
+  font-size: 17px;
+  color: #fafafa;
+  line-height: 1.8;
+  /* margin-bottom: 12px; */
+}
+
+.eyra-about-hero-img {
+  max-width: 100%;
+  animation: float 4s ease-in-out infinite;
+  border-radius: 14px;
+}
+
+/* SECTIONS */
+/* .eyra-about-section,
+.eyra-about-philosophy {
+  margin: 80px 0;
+} */
+
+.eyra-about-heading {
+   font-size: 32px;
+  font-weight: 700;
+  color: #0B3C5D;
+  margin-bottom: 15px;
+}
+
+.eyra-about-text {
+  font-size: 17px;
+  color: #4B5563;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+/* IMAGES */
+.eyra-about-img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* STATS */
+.eyra-about-stats {
+  background-color: #EDF6FF;
+  padding: 60px 0;
+}
+
+.eyra-about-stats h3 {
+  color: black;
+}
+
+.eyra-about-stats p {
+  color: black;
+}
+
+
+.eyra-stat-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 15px;
+  transition: transform .3s, box-shadow .3s;
+  border: 1px solid #0D6EFD; 
+}
+
+.eyra-stat-card h3 {
+  color: #0D6EFD;
+}
+
+.eyra-stat-card p {
+  color: #0D6EFD;
+}
+
+.eyra-stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(13, 110, 253, 0.2);
+}
+
+/* VALUES */
+.eyra-about-values {
+  background-color: #EDF6FF;
+  /* padding: 80px 0; */
+}
+
+.eyra-about-values-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0B3C5D;
+}
+
+.eyra-about-values-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #4B5563;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.eyra-value-card {
+  background: #0D6EFD;
+  padding: 35px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all .3s ease;
+  border: 1.5px solid #0D6EFD;
+  color:#ffffff;
+}
+
+.eyra-value-card i {
+  font-size: 34px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.eyra-value-card:hover i{
+  color: #0D6EFD;
+}
+
+.eyra-value-card:hover {
+  background: #ffffff;
+  color: #0D6EFD;
+  border-color: #0D6EFD;
+}
+
+
+/* PHILOSOPHY */
+.eyra-philosophy-list {
+  list-style: none;
+  padding: 0;
+}
+
+.eyra-philosophy-list li {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.eyra-philosophy-list i {
+  color: #0D6EFD;
+  margin-right: 10px;
+}
+
+/* ANIMATION */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+
+
+/* CONTACT INTRO SECTION */
+.eyra-contact-intro {
+  background-color: #ffffff;
+  /* padding-top: 80px;
+  padding-bottom: 60px; */
+}
+
+/* Main Title */
+.eyra-contact-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #0B3C5D;
+  line-height: 1.2;
+}
+
+/* Subtitle */
+.eyra-contact-subtitle {
+  font-size: 18px;
+  color: #4B5563;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .eyra-contact-title {
+    font-size: 30px;
+  }
+
+  .eyra-contact-subtitle {
+    font-size: 16px;
+  }
+}
+
+
+
+
+/* CONTACT FORM SECTION */
+.eyra-contact-form-section {
+  background-color: #EDF6FF;
+}
+
+/* Small label */
+/* .eyra-form-label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #0D6EFD;
+} */
+
+/* Title */
+/* .eyra-form-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0B3C5D;
+} */
+
+/* Subtitle */
+/* .eyra-form-subtitle {
+  font-size: 16px;
+  color: #4B5563;
+  font-weight: 500;
+  line-height: 1.7;
+} */
+
+.eyra-contact-card {
+  border-radius: 10px!important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15)!important;
+  border: none!important;
+  padding-top: 26px!important;
+  background-color:#0D6EFD!important;
+
+  width: 100%;
+  max-width: 620px;   /* desktop size */
+  margin: 0 auto;     /* center card */
+}
+
+.eyra-contact-card-header {
+  background-color: transparent;
+  border-bottom: none;
+}
+
+.eyra-contact-card-header h3 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.eyra-contact-card-subtext {
+  font-size: 16px;
+  color: #CFE3F5;
+}
+
+.eyra-contact-card-body {
+  padding: 30px 55px!important; 
+  background-color: white;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+
+
+/* Form styling */
+.eyra-contact-form .form-control {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eyra-contact-form .form-control:focus {
+  border-color: #0D6EFD;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+/* Button */
+.eyra-contact-form button {
+  background-color: #0D6EFD;
+  color: #ffffff;
+  padding: 12px 36px; 
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600 ;
+  border: none; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.eyra-contact-form button:hover {
+  background-color: #0D6EFD;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.25);
+}
+
+/* Image */
+.eyra-contact-image {
+  max-width: 100%;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .eyra-form-title {
+    font-size: 26px;
+  }
+
+  .eyra-form-subtitle {
+    font-size: 15px;
+  }
+
+  .eyra-contact-image {
+    display: none!important;
+  }
+}
+
+@media (min-width: 992px) {
+  .eyra-contact-form-section .col-lg-6:first-child {
+    padding-right: 40px;
+  }
+
+  .eyra-contact-form-section .col-lg-6:last-child {
+    padding-left: 140px;
+  }
+}
+
+@media (max-width: 991px) {
+  .eyra-contact-image {
+    display: none!important;
+  }
+}
+
+@media (min-width: 992px) {
+  .eyra-contact-form-section .container {
+    padding-left: 140px;
+  }
+}
+
+/* SECTION 3 - VISIT US */
+
+.eyra-contact-visit {
+  background-color: #ffffff;
+}
+
+/* Map Box */
+.eyra-map-box {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+}
+
+.eyra-map-box iframe {
+  width: 100%;
+  height: 380px;
+  border: none;
+}
+
+/* Right Content */
+.eyra-visit-content {
+  padding-right: 20px;
+}
+
+.eyra-visit-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #0B3C5D;
+  margin-bottom: 12px;
+}
+
+.eyra-visit-text {
+  font-size: 17px;
+  color: #4B5563;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+/* Contact List */
+.eyra-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px;
+}
+
+.eyra-contact-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 16px;
+  color: #374151;
+}
+
+.eyra-contact-list i {
+  color: #0D6EFD;
+  font-size: 18px;
+  margin-right: 12px;
+}
+
+.eyra-contact-list:hover i {
+ cursor: pointer;
+}
+
+
+
+/* Social Links */
+/* .eyra-social-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eyra-social-links span {
+  font-size: 22px;
+  font-weight: 500;
+  color: #6B7280;
+}
+
+.eyra-social-links a {
+  color: #0D6EFD;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.eyra-social-links a:hover {
+  color: #0D6EFD;
+}
+
+.eyra-social-links {
+  margin-top: 25px;
+  background: #FFF7ED;
+  color: #92400E;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+} */
+
+/* Follow Us Section */
+
+.eyra-follow-section {
+  background: linear-gradient(135deg, #0B3C5D, #145C8F);
+  color: #fff;
+  padding: 50px 0;
+  justify-content: center;
+}
+
+
+.eyra-follow-title {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.eyra-follow-subtitle {
+  font-size: 17px;
+  color: #fafafa;
+  line-height: 1.8;
+  /* margin-bottom: 12px; */
+}
+
+
+.eyra-follow-us {
+  background: linear-gradient(135deg, rgba(243, 247, 250, 0.08), rgba(246, 251, 255, 0.03));
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* Text */
+.eyra-follow-text {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #0B3C5D;
+  margin-bottom: 14px;
+  letter-spacing: 0.4px;
+}
+
+/* Icons Wrapper */
+.eyra-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* Social Icon Base */
+.social-link {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  color: #0B3C5D;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Animation */
+.social-link:hover {
+  transform: translateY(-6px) scale(1.05);
+  color: #fff;
+}
+
+/* Glow Effect */
+.social-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-link:hover::after {
+  opacity: 1;
+}
+
+/* Platform Colors */
+.social-link.facebook:hover {
+  background: #1877f2;
+}
+
+.social-link.instagram:hover {
+  background: radial-gradient(circle at 30% 110%, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+}
+
+.social-link.linkedin:hover {
+  background: #0077b5;
+}
+
+.social-link.youtube:hover {
+  background: crimson;
+}
+
+.social-link.whatsapp:hover {
+  background: rgb(85, 219, 85);
+}
+
+.social-link.snapchat:hover {
+  background: rgb(235, 238, 87);
+  color: black;
+}
+
+/* Subtle Pulse Animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(11, 60, 93, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(11, 60, 93, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(11, 60, 93, 0);
+  }
+}
+
+/* Pulse First Icon */
+.social-link.facebook {
+  animation: pulse 2.5s infinite;
+}
+
+
+/* ============================
+   CONTACT VISIT RESPONSIVE
+   ============================ */
+
+/* Tablets (MD) */
+@media (max-width: 991px) {
+
+  .eyra-visit-title {
+    font-size: 26px;
+  }
+
+  .eyra-visit-text {
+    font-size: 16px;
+  }
+
+  .eyra-map-box iframe {
+    height: 340px;
+  }
+
+  .eyra-visit-content {
+    padding-right: 0;
+  }
+}
+
+/* Mobile (SM & XS) */
+@media (max-width: 575px) {
+
+  .eyra-contact-visit {
+    text-align: center;
+  }
+
+  .eyra-map-box iframe {
+    height: 280px;
+  }
+
+  .eyra-visit-title {
+    font-size: 24px;
+  }
+
+  .eyra-visit-text {
+    font-size: 15px;
+  }
+
+  .eyra-contact-list li {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .eyra-social-links {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .eyra-social-links span {
+    font-size: 18px;
+  }
+}
+
+
+
+
+
+
+/* HERO */
+.eyra-services-hero {
+  background: linear-gradient(135deg, #0B3C5D, #145C8A);
+  color: #fff;
+  /* padding: 70px 0; */
+}
+
+.eyra-services-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.eyra-services-subtitle {
+  max-width: 700px;
+  margin: 15px auto 0;
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+/* SERVICES SECTION */
+.eyra-services-section {
+  /* padding: 70px 0; */
+ background-color: #EDF6FF;
+}
+
+.eyra-service-card {
+  background: #fff;
+  border-radius: 14px;
+  /* padding: 30px 25px; */
+  text-align: center;
+  /* height: 100%; */
+  transition: all 0.3s ease;
+  border: 1px solid #e6e9ee;
+}
+
+.eyra-service-card:hover {
+  /* transform: translateY(-8px); */
+  box-shadow: 0 18px 40px rgba(11, 60, 93, 0.12);
+}
+
+.service-icon {
+  width: 70px;
+  height: 70px;
+  background: rgba(11, 60, 93, 0.1);
+  color: #0B3C5D;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 20px;
+}
+
+.service-icon:hover {
+ cursor: pointer;
+}
+
+.eyra-service-card h5 {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #0d6efd;
+}
+
+.eyra-service-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+
+/* ============================
+   EYRA CARE APPROACH SECTION
+============================ */
+
+.eyra-care-section {
+  background: #ffffff;
+}
+
+/* Image Styling */
+.eyra-care-img-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.eyra-care-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content */
+.eyra-care-title {
+  font-weight: 700;
+  color: #0B3C5D;
+  margin-bottom: 15px;
+  font-size: 32px;
+}
+
+.eyra-care-text {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  font-size: 17px;
+}
+
+
+/* Points */
+.eyra-care-points {
+  margin-top: 20px;
+}
+
+.eyra-care-points p {
+  font-size: 14.5px;
+  color: #212529;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyra-care-points i {
+  color: #0d6efd;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .eyra-care-img-wrapper {
+    margin-bottom: 25px;
+  }
+}
+
+
+/* ============================
+   EYRA DOCTORS SECTION
+============================ */
+
+.eyra-doctors-section {
+  background-color: #EDF6FF;
+}
+
+.eyra-doctors-title {
+  font-weight: 700;
+  color: #0B3C5D;
+}
+
+.eyra-doctors-subtitle {
+  color: #6c757d;
+  font-size: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Doctor Card */
+.eyra-doctor-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 25px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s ease;
+}
+
+.eyra-doctor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(13, 110, 253, 0.2);
+}
+
+/* Doctor Image */
+.eyra-doctor-img {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #e9f1ff;
+}
+
+.eyra-doctor-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Doctor Info */
+.eyra-doctor-card h5 {
+  font-weight: 600;
+  color: #212529;
+}
+
+.eyra-doctor-speciality {
+  display: block;
+  font-size: 14px;
+  color: #0d6efd;
+  margin-bottom: 6px;
+}
+
+.eyra-doctor-exp {
+  font-size: 13px;
+  color: #6c757d;
+}
+
+.eyra-doctor-exp i {
+  color: #0d6efd;
+  margin-right: 5px;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .eyra-doctor-img {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+
+/* TRUST SECTION */
+.eyra-services-trust {
+  background: #fff;
+  /* padding: 60px 0; */
+  /* border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee; */
+}
+
+.eyra-trust-card {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all .3s ease;
+  border: 1.2px solid #0D6EFD;
+  color:#0D6EFD;
+}
+
+.eyra-trust-card i {
+  font-size: 34px;
+  color: #0D6EFD;
+  margin-bottom: 15px;
+}
+
+.eyra-trust-card:hover i{
+  color: #ffffff;
+}
+
+.eyra-trust-card:hover {
+  background: #0D6EFD;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+
+/* .eyra-services-trust i {
+  font-size: 36px;
+  color: #0d6efd;
+  margin-bottom: 12px;
+}
+
+
+.eyra-services-trust:hover i {
+  cursor: pointer;
+}
+
+.eyra-services-trust h5 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.eyra-services-trust p {
+  color: #666;
+} */
+
+
+

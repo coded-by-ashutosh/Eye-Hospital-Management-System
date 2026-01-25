@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('CDN/bootstrap.ejs') %>
+</head>
+
+<body>
+
+  <%- include('Header/Home_Header.ejs') %>
+
+    <!-- INTRO SECTION -->
+    <section class="eyra-contact-intro mt-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9 text-center">
+
+            <h1 class="eyra-contact-title mb-3">
+              We’re Here to Help You See Clearly
+            </h1>
+
+            <p class="eyra-contact-subtitle mb-0">
+              Whether you have a question, need guidance, or want to reach our specialists,
+              our team is always ready to assist you with care and clarity.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section class="eyra-contact-form-section mt-5 mb-5">
+      <div class="container">
+        <div class="row align-items-center">
+
+          <!-- FORM -->
+          <div class="col-lg-6">
+
+            <!-- <h2 class="eyra-form-title mt-5 mb-2">
+              Talk to Our Care Team
+            </h2>
+
+            <p class="eyra-form-subtitle mb-4">
+              Share your concern with us and our specialists will respond
+              with the guidance and care you deserve.
+            </p> -->
+
+            <div class="eyra-contact-card mt-5">
+
+              <div class="text-center eyra-contact-card-header">
+                <h3>Talk to Our Care Team</h3>
+                <p class="eyra-contact-card-subtext">
+                  Share your concern with us
+              </div>
+
+              <div class="eyra-contact-card-body mb-5">
+                <form action="/contact" method="post" class="eyra-contact-form">
+
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text" class="form-control" id="subject" name="subject" required>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary mt-2 w-100 eyra-form-btn">
+                    Send Message
+                  </button>
+
+                </form>
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+          <!-- IMAGE -->
+          <div class="col-lg-6 text-center">
+            <img src="/public/images/contact-support.png" alt="Patient support team"
+              class="eyra-contact-image img-fluid">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VISIT SECTION -->
+    <section class="eyra-contact-visit mb-5">
+      <div class="container">
+        <div class="row align-items-center g-5">
+
+          <!-- MAP -->
+          <div class="col-lg-6">
+            <div class="eyra-map-box">
+              <iframe src="https://www.google.com/maps?q=Pune%20India&output=embed" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+
+          <!-- INFO -->
+          <div class="col-lg-6">
+            <div class="eyra-visit-content">
+
+              <h2 class="eyra-visit-title mb-3">
+                Visit Our Eye Care Center
+              </h2>
+
+              <p class="eyra-visit-text">
+                We welcome you to our clinic for consultations, treatments, and follow-ups.
+                Our team ensures a safe, comfortable, and professional experience.
+
+                Whether you have questions, need guidance, or want to book an appointment, our staff is always ready to
+                assist you.
+              </p>
+
+              <ul class="eyra-contact-list">
+                <li>
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>Pune, Maharashtra, India</span>
+                </li>
+                <li>
+                  <i class="bi bi-telephone-fill"></i>
+                  <span>Emergency: 108</span>
+                </li>
+                <li>
+                  <i class="bi bi-envelope-fill"></i>
+                  <span>support@eyraclinic.com</span>
+                </li>
+                <li>
+                  <i class="bi bi-clock-fill"></i>
+                  <span>Mon–Sat : 9AM–8PM</span>
+                </li>
+
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FOLLOW US SECTION -->
+    <section class="eyra-follow-section my-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+
+            <h2 class="eyra-follow-title mb-2">
+              Stay Connected with EYRA
+            </h2>
+
+            <p class="eyra-follow-subtitle mb-4">
+              Get eye care tips, updates, and announcements directly from our specialists
+            </p>
+
+            <div class="eyra-follow-us">
+              <div class="eyra-social-icons justify-content-center">
+                <a href="#" class="social-link facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="social-link instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="social-link linkedin"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="social-link youtube"><i class="bi bi-youtube"></i></a>
+                <a href="#" class="social-link whatsapp"><i class="bi bi-whatsapp"></i></a>
+                <!-- <a href="#" class="social-link snapchat"><i class="bi bi-snapchat"></i></a> -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ALERT MESSAGE -->
+    <% if(locals.msg) { %>
+      <script>
+        alert("<%= msg %>")
+      </script>
+      <% } %>
+
+        <%- include('Appointment_Form/Form.ejs') %>
+        <%- include('chat/chat.ejs') %>
+        <%- include('Footer/Home_Footer.ejs') %>
+        <%- include('CDN/javascript.ejs') %>
+
+</body>
+
+</html>

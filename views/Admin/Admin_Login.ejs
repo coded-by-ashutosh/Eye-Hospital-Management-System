@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('../CDN/bootstrap.ejs') %>
+</head>
+
+<body>
+  <%- include('../Header/Home_Header.ejs') %>
+
+  <div class="container mt-2 login_div_margin_bottom">
+    <div class="row mt-3">
+      <div class="col-md-4 offset-md-4 mt-3">
+
+        <!-- Admin Image -->
+        <img src="../../public/images/login-lady.png" class="img-fluid mx-auto d-block eyra-login-img" alt="Admin Login">
+
+        <!-- Card -->
+        <div class="card eyra-login-card">
+
+          <!-- Header -->
+          <div class="card-header text-center eyra-login-header">
+            <h3>Admin Panel</h3>
+            <p class="eyra-login-subtext">
+              Secure access to the administration panel
+            </p>
+          </div>
+
+          <!-- Body -->
+          <div class="card-body">
+            <form action="/cpanel" method="POST">
+
+              <div class="form-group mb-3">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+
+                <label for="password" class="mt-3">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary mt-2 w-100 eyra-login-btn">Login</button>
+
+              <a href="/forgotpassword" class="d-block mt-3 text-center eyra-login-link">Forgot Password?</a>
+
+            </form>
+
+            <!-- Error / Success Message -->
+        <% if(locals.msg) { %>
+          <div class="admin-message text-center text-success mt-3 fw-semibold">
+            <%= msg %>
+          </div>
+        <% } %>
+
+          </div>
+
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+  <% if(locals.username) { %>
+
+        <script>
+            document.getElementById("username").value='<%=username%>';
+        </script>
+    
+  <% } %>
+
+  <%- include('../chat/chat.ejs') %>
+  <%- include('../Footer/Home_Footer.ejs') %>
+  <%- include('../CDN/javascript.ejs') %>
+</body>
+</html>

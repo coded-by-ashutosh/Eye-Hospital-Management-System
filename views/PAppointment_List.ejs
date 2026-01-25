@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('CDN/bootstrap.ejs') %>
+  <%- include('CDN/datatable_css.ejs') %>
+</head>
+
+<body>
+    <div class="d-flex">
+<%- include('Header/Patient_Header.ejs') %>
+
+ <div class="flex-grow-1 bg-light px-3 py-4">
+
+  <!-- PAGE HEADER -->
+  <div class="container-fluid mb-4">
+    <h1 class="appointments-heading fw-bold mb-2">My Appointments</h1>
+    <p class="text-muted mb-5">
+      View and manage all your booked appointments
+    </p>
+  </div>
+
+  <!-- TABLE CARD -->
+  <div class="card eyra-table-card">
+
+    <div class="eyra-table-card-body">
+
+      <% if(locals.datas && datas.length > 0) { %>
+
+      <div class="table-responsive">
+        <table class="table table-hover eyra-appointment-table align-middle" id="palist">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Patient Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i = 0; i < datas.length; i++) { %>
+              <tr>
+                <td><%= datas[i].id %></td>
+                <td><%= datas[i].name %></td>
+                <td><%= datas[i].email %></td>
+                <td><%= datas[i].phone %></td>
+                <td>
+                  <span class="badge date bg-primary">
+                    <%= datas[i].preferred_date %>
+                  </span>
+                </td>
+                <td>
+                  <span class="badge time bg-success">
+                    <%= datas[i].prefer_time %>
+                  </span>
+                </td>
+                <td><%= datas[i].address %></td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+      <% } else { %>
+
+      <!-- EMPTY STATE -->
+      <div class="text-center py-5">
+        <!-- <img src="/public/images/no-appointments.png" width="140" class="mb-3"> -->
+        <!-- <h5 class="text-muted">No appointments booked yet</h5> -->
+        <p class="appointment-text text-muted mb-3">
+          Book your first appointment to get started
+        </p>
+        <a href="/book_appointment" class="btn appointment-btn">
+          Book Appointment
+        </a>
+      </div>
+
+      <% } %>
+
+      <% if(locals.msg) { %>
+        <div class="appointment-message text-center text-success fw-semibold mt-3">
+          <%= msg %>
+        </div>
+      <% } %>
+
+    </div>
+  </div>
+
+</div>
+</div>
+
+<%- include('CDN/datatable_js.ejs') %>
+<%- include('chat/chat.ejs') %>
+<%- include('Footer/Dashboard_Footer.ejs') %>
+<%- include('CDN/javascript.ejs') %>
+
+<script>
+    $('#palist').DataTable();
+</script>
+
+</body>
+</html>

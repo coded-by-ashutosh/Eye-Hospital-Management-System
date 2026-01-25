@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <%- include('CDN/bootstrap.ejs') %>
+</head>
+
+<body>
+
+
+
+    <div class="d-flex">
+
+        <%- include('Header/Patient_Header.ejs') %>
+
+        <%- include('PDashboard_bar/pbar.ejs') %>
+            
+
+    </div>
+
+
+
+    <% {%>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+
+                /* APPOINTMENTS */
+                const appointmentCtx = document
+                    .getElementById("appointmentChart")
+                    .getContext("2d");
+
+                new Chart(appointmentCtx, {
+                    type: "line",
+                    data: {
+                        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+                        datasets: [{
+                            label: "Appointments",
+                            data: [5, 9, 6, 14, 11, 18],
+                            borderColor: "#0D6EFD",
+                            backgroundColor: "rgba(13,110,253,0.15)",
+                            tension: 0.4,
+                            fill: true,
+                            pointRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
+
+                /* MEDICAL DATA */
+                const healthCtx = document
+                    .getElementById("healthChart")
+                    .getContext("2d");
+
+                new Chart(healthCtx, {
+                    type: "doughnut",
+                    data: {
+                        labels: ["Reports", "Prescriptions", "Lab Tests"],
+                        datasets: [{
+                            data: [12, 80, 46],
+                            backgroundColor: [
+                                "#0D6EFD",
+                                "#2ECC71",
+                                "#F39C12"
+                            ]
+                        }]
+                    },
+                    options: {
+                        cutout: "70%",
+                        plugins: {
+                            legend: {
+                                position: "bottom"
+                            }
+                        }
+                    }
+                });
+
+            });
+        </script>
+
+
+        <% } %>
+
+
+
+            <%- include('chat/chat.ejs') %>
+            <!-- <%- include('Footer/Dashboard_Footer.ejs') %> 
+            <%- include('CDN/javascript.ejs') %>
+</body>
+
+</html>

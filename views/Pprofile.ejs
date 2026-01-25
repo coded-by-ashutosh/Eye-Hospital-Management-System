@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('CDN/bootstrap.ejs') %>
+</head>
+
+<body>
+    <div class="d-flex">
+<%- include('Header/Patient_Header.ejs') %>
+
+ <div class="flex-grow-1 bg-light px-3 py-4">
+
+
+ <div class="container-fluid mb-4">
+  <h1 class="appointments-heading fw-bold mb-2">My Profile</h1>
+  <p class="text-muted mb-5">
+    View your personal details and account information
+  </p>
+</div>
+    
+  <div class="profile-card">
+
+    <!-- Header -->
+    <div class="profile-header">
+      <img src="../public/Patients_Photo/<%=record[0].photo%>" class="profile-avatar">
+      <div class="profile-basic">
+        <h4><%=record[0].name%></h4>
+        <span class="profile-badge">
+          Profile: <%=record[0].profile_complete%>
+        </span>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="profile-body">
+      <div class="profile-item">
+        <span>Email</span>
+        <p><%=record[0].email%></p>
+      </div>
+
+      <div class="profile-item">
+        <span>Mobile</span>
+        <p><%=record[0].mobile%></p>
+      </div>
+
+      <div class="profile-item">
+        <span>Gender</span>
+        <p><%=record[0].gender%></p>
+      </div>
+
+      <div class="profile-item">
+        <span>Address</span>
+        <p><%=record[0].address%></p>
+      </div>
+
+      <div class="profile-item">
+        <span>Ayushman Card</span>
+        <p><%=record[0].ayushmaan_card%></p>
+      </div>
+
+      <div class="profile-item">
+        <span>Disease History</span>
+        <p><%=record[0].dis_history%></p>
+      </div>
+
+      <div class="profile-item">
+        <span>Registration Date</span>
+        <p><%=record[0].reg_date%></p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="profile-footer">
+      <i class="bi bi-info-circle"></i>
+      For profile updates, please contact the Admin Department or visit our office.
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+</div>
+</div>
+
+<%- include('Footer/Dashboard_Footer.ejs') %>
+<%- include('CDN/javascript.ejs') %>
+
+</body>
+</html>
