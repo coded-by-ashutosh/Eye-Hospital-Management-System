@@ -54,8 +54,16 @@ http://localhost:2200
 📸 Screenshots
 
 ![Home](screenshots/home.png)
+![Contact](screenshots/contact.png)
+![Chat](screenshots/chat.png)
+![Admin Panel](screenshots/admin-panel.png)
+![Admin Notifications](screenshots/admin-notifications.png)
+![Patient Dashboard](screenshots/patient-dashboard.png)
+![Patient Profile](screenshots/patient-profile.png)
+![Patient Appointments](screenshots/patient-appointments.png)
 ![Patient Login](screenshots/patient-login.png)
-![Patient Dashboard](screenshots/dashboard.png)
+![Patient Register](screenshots/patient-register.png)
+
 
 🎯 Future Improvements
 🔔 Email Notifications for Appointments
