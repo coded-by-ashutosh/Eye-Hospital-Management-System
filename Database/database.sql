@@ -1,4 +1,3 @@
-
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
@@ -22,6 +21,12 @@ SET time_zone = "+00:00";
 -- Database: `eyra`
 --
 
+-- Create Database
+CREATE DATABASE IF NOT EXISTS Eyra;
+
+-- Use Database
+USE Eyra;
+
 -- --------------------------------------------------------
 
 --
@@ -34,6 +39,13 @@ CREATE TABLE `admin` (
   `password` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Default admin login
+-- Username: admin
+-- Password: admin123
+
+INSERT INTO admin (username, password)
+VALUES ('admin', '123456');
 
 -- --------------------------------------------------------
 
