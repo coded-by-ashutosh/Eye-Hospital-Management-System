@@ -45,15 +45,15 @@ Eye_Clinic/
 ⚙️ Installation & Setup
 
 1. Clone the repository
-git clone https://github.com/coded-by-ashutosh/eye-hospital-management-system.git
+   * git clone https://github.com/coded-by-ashutosh/eye-hospital-management-system.git
 2. Navigate to project folder
-cd eye-hospital-management-system
+   * cd eye-hospital-management-system
 3. Install dependencies
-npm install
+   * npm install
 4. Start the server
-npm start
+   * npm start
 5. Open in browser:
-http://localhost:2200
+   * http://localhost:2200
 
 🗄️ Database Setup
 
