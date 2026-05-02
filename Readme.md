@@ -4,6 +4,7 @@ A full-stack web application designed to manage hospital operations such as pati
 This project includes a real-time chat feature using Tawk.to, allowing users to communicate instantly with support/admin for queries and assistance.
 
 🚀 Features
+
 👤 Patient Registration & Login System
 🔐 Secure Authentication
 📅 Book Appointments with Doctors
@@ -31,6 +32,7 @@ Database:
 MySQL 
 
 📂 Project Structure
+
 Eye_Clinic/
 │
 ├── views/              # EJS templates
@@ -39,7 +41,9 @@ Eye_Clinic/
 ├── screenshots/        # Project screenshots 
 ├── package.json        # Dependencies
 └── README.md
+
 ⚙️ Installation & Setup
+
 Clone the repository
 git clone https://github.com/coded-by-ashutosh/eye-hospital-management-system.git
 Navigate to project folder
@@ -50,6 +54,39 @@ Start the server
 npm start
 Open in browser:
 http://localhost:2200
+
+🗄️ Database Setup
+
+1. Make sure MySQL is running (XAMPP recommended)
+
+2. Import the database file:
+
+   * Open **phpMyAdmin** or **MySQL Workbench**
+   * Import the file:
+     `Database/database.sql`
+
+   *(This will automatically create and select the database `eyra`)*
+
+3. Default Admin Login:
+
+   * Username: `admin`
+   * Password: `123456`
+
+4. Configure your database connection in the project:
+
+   * Host: `localhost`
+   * User: `root`
+   * Password: *(leave blank if using XAMPP)*
+   * Database: `eyra`
+
+---
+
+⚠️ Notes
+
+* Ensure MySQL is running before starting the project
+* If database already exists, delete it and re-import the SQL file
+* No manual database creation is required
+
 
 📸 Screenshots
 
@@ -66,6 +103,7 @@ http://localhost:2200
 
 
 🎯 Future Improvements
+
 🔔 Email Notifications for Appointments
 📱 Mobile Responsive Enhancements
 💳 Online Payment Integration
