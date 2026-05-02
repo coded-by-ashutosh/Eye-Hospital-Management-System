@@ -92,12 +92,15 @@ Eye_Clinic/
 🌐 User Interface
 
 **Home Page**
+
 ![Home](screenshots/home.png)
 
 **Contact Page**
+
 ![Contact](screenshots/contact.png)
 
 **Chat Support**
+
 ![Chat](screenshots/chat.png)
 
 ---
@@ -105,28 +108,35 @@ Eye_Clinic/
 👤 Patient Panel
 
 **Patient Login**
+
 ![Patient Login](screenshots/patient-login.png)
 
 **Patient Registration**
+
 ![Patient Register](screenshots/patient-register.png)
 
 **Patient Dashboard**
+
 ![Patient Dashboard](screenshots/patient-dashboard.png)
 
 **Patient Profile**
+
 ![Patient Profile](screenshots/patient-profile.png)
 
 **Patient Appointments**
+
 ![Patient Appointments](screenshots/patient-appointments.png)
 
 ---
 
-Admin Panel
+🛠️ Admin Panel
 
 **Admin Dashboard**
+
 ![Admin Panel](screenshots/admin-panel.png)
 
 **Admin Notifications**
+
 ![Admin Notifications](screenshots/admin-notifications.png)
 
 
