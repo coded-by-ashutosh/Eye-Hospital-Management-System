@@ -308,6 +308,10 @@ Doctor and patient accounts can be created or managed through the application.
 
 ![Patient Dashboard](screenshots/desktop/patient-dashboard.png)
 
+### 💬 Real-Time Chat Support
+
+![Chat Support](screenshots/desktop/chat-support.png)
+
 ### 📅 Book Appointment
 
 ![Book Appointment](screenshots/desktop/book-appointment.png)
