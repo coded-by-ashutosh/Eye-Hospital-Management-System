@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        My Enquiries
+    </title>
+
+    <%- include('CDN/bootstrap.ejs') %>
+        <%- include('CDN/datatable_css.ejs') %>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <%- include('Header/Patient_Header.ejs') %>
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+                <div class="container-fluid mb-4">
+
+                    <h1 class="appointments-heading fw-bold mb-2">
+
+                        My Enquiries
+
+                    </h1>
+
+                    <p class="text-muted mb-0">
+
+                        Track all your enquiries and view admin responses
+
+                    </p>
+
+                </div>
+
+
+                <div class="card eyra-table-card mt-5">
+
+                    <div class="eyra-table-card-body">
+
+                        <% if(enquiry_record.length>0){ %>
+
+                            <div class="table-responsive">
+
+                                <table class="table table-hover eyra-appointment-table align-middle" id="enquiryTable">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <!-- <th>#</th> -->
+
+                                            <th>Subject</th>
+
+                                            <th>Message</th>
+
+                                            <th>Date & Time</th>
+
+                                            <th>Status</th>
+
+                                            <th>Admin Reply</th>
+
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        <% enquiry_record.forEach((data)=>{ %>
+
+                                            <tr>
+
+                                                <!-- <td>
+
+                                                    <%= data.id %>
+
+                                                </td> -->
+
+                                                <td>
+
+                                                    <%= data.subject %>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <%= data.message %>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <span class="badge date bg-primary">
+
+                                                        <%= new Date(data.date_time).toLocaleString('en-CA', {year:'numeric', month:'2-digit', day:'2-digit',
+                                                            hour:'2-digit',minute:'2-digit', hour12:true }).replace(',', ' |' ) %>
+
+                                                    </span>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <% if(data.reply_status=="Resolved") { %>
+
+                                                        <span  class="eyra-status-completed">
+
+                                                                            Resolved
+
+                                                                        </span>
+
+                                                        <% } else { %>
+
+                                                            <span class="eyra-status-pending">
+                                                            
+                                                                Pending
+                                                            
+                                                            </span>
+
+                                                            <% } %>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <% if(data.admin_reply){ %>
+
+                                                        <%= data.admin_reply %>
+
+                                                            <% } else { %>
+
+                                                                <span class="text-muted">
+
+                                                                    Awaiting Admin Reply
+
+                                                                </span>
+
+                                                                <% } %>
+
+                                                </td>
+
+
+                                            </tr>
+
+                                            <% }) %>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                            <% } else { %>
+
+                                <div class="text-center py-5">
+
+                                    <p class="appointment-text text-muted mb-3">
+
+                                        No enquiries found yet
+
+                                    </p>
+
+                                    <a href="/contact" class="btn appointment-btn">
+
+                                        Send Enquiry
+
+                                    </a>
+
+                                </div>
+
+                                <% } %>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+    </div>
+
+    <%- include('chat/chat.ejs') %>
+        <%- include('CDN/datatable_js.ejs') %>
+            <%- include('CDN/javascript.ejs') %>
+
+                <script>
+
+                    $('#enquiryTable').DataTable({
+                        order: [[0, 'desc']]
+                    });
+
+                </script>
+
+</body>
+
+</html>

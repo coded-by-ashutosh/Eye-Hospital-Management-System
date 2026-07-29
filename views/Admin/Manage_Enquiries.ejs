@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Enquiries</title>
+
+        <%- include('../CDN/bootstrap.ejs') %>
+            <%- include('../CDN/datatable_css.ejs') %>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <%- include('../Header/Admin_Header.ejs') %>
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+                <div class="container-fluid">
+
+                    <h1 class="manage-enquiries-heading fw-bold mb-1">
+                        Manage Enquiries
+                    </h1>
+                    <p class="text-muted mb-4">
+                        Review patient enquiries, track responses, and manage communication requests.
+                    </p>
+
+                    <div class="card eyra-table-card mt-5">
+
+                        <div class="eyra-table-card-body">
+
+                            <div class="table-responsive">
+
+                                <table class="table table-hover eyra-enquiry-table align-middle" id="enquiries_list">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Subject</th>
+                                            <th>Message</th>
+                                            <th>Date & Time</th>
+                                            <th>Status</th>
+                                            <!-- <th>Admin Reply</th> -->
+                                            <th>Action</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        <% enquiry_record.forEach((data)=> { %>
+
+                                            <tr>
+
+                                                <td>
+                                                    <%= data.name %>
+                                                </td>
+
+                                                <td>
+                                                    <%= data.email %>
+                                                </td>
+
+                                                <td>
+                                                    <%= data.subject %>
+                                                </td>
+
+                                                <td>
+                                                    <%= data.message %>
+                                                </td>
+
+                                                <td>
+                                                    <span class="badge date bg-primary">
+                                                    <%= new Date(data.date_time).toLocaleString('en-CA', {year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit',minute:'2-digit', hour12:true }).replace(',', ' |' ) %>
+                                                    </span>
+                                                </td>
+
+                                                <td>
+
+                                                    <% if(data.reply_status=="Resolved" ) { %>
+
+                                                        <span class="eyra-status-completed">
+
+                                                            Resolved
+
+                                                        </span>
+
+                                                        <% } else { %>
+
+                                                            <span class="eyra-status-pending">
+
+                                                                Pending
+
+                                                            </span>
+
+                                                            <% } %>
+
+                                                </td>
+
+                                                <!-- <td>
+
+                                                    <% if(data.admin_reply) { %>
+
+                                                        <%= data.admin_reply %>
+
+                                                            <% } else { %>
+
+                                                                <span class="text-muted">
+
+                                                                    No Reply Yet
+
+                                                                </span>
+
+                                                                <% } %>
+
+                                                </td> -->
+
+                                                <td>
+
+                                                    <% if(data.reply_status!="Resolved" ) { %>
+
+                                                        <button class="eyra-btn-reply btn-sm" data-bs-toggle="modal"
+                                                            data-bs-target="#replyModal<%= data.id %>">
+                                                            <i class="bi bi-reply-fill"></i>
+                                                            Reply
+
+                                                        </button>
+
+                                                        <% } %>
+
+                                                            <a href="/delete_enquiry/<%= data.id %>"
+                                                                class="eyra-btn-delete btn-sm"
+                                                                onclick="return confirm('Are you sure you want to delete this enquiry?')">
+                                                                <i class="bi bi-trash-fill me-1"></i>
+                                                                Delete
+
+                                                            </a>
+
+                                                </td>
+
+                                            </tr>
+
+                                            <% }) %>
+
+                                    </tbody>
+
+                                </table>
+
+                                <% enquiry_record.forEach((data)=> { %>
+
+                                    <div class="modal fade" id="replyModal<%= data.id %>">
+
+                                        <div class="modal-dialog">
+
+                                            <div class="modal-content">
+
+                                                <div class="modal-header">
+
+                                                    <h5 class="modal-title">
+                                                        Reply Enquiry
+                                                    </h5>
+
+                                                    <button type="button" class="btn-close"
+                                                        data-bs-dismiss="modal"></button>
+
+                                                </div>
+
+                                                <form action="/reply_enquiry" method="POST">
+
+                                                    <div class="modal-body">
+
+                                                        <input type="hidden" name="id" value="<%= data.id %>">
+
+                                                        <label class="form-label">
+                                                            Admin Reply
+                                                        </label>
+
+                                                        <textarea name="admin_reply" class="form-control" rows="4"
+                                                            required><%= data.admin_reply || '' %></textarea>
+
+                                                    </div>
+
+                                                    <div class="modal-footer">
+
+                                                        <button type="submit" class="btn btn-success">
+
+                                                            Send Reply
+
+                                                        </button>
+
+                                                    </div>
+
+                                                </form>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <% }) %>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+    </div>
+
+    <%- include('../CDN/datatable_js.ejs') %>
+        <%- include('../Footer/Dashboard_Footer.ejs') %>
+            <%- include('../CDN/javascript.ejs') %>
+
+                <script>
+                    $('#enquiries_list').DataTable({
+                        order: [[0, 'desc'],
+                    ],
+                    columnDefs: [
+                        {
+                          targets: 3,
+                        //   targets: 6,
+                          width: '300px'  
+                        }
+                    ]
+                    });
+                </script>
+
+</body>
+
+</html>

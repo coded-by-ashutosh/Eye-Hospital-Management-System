@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Appointments</title>
+
+    <%- include('../CDN/bootstrap.ejs') %>
+        <%- include('../CDN/datatable_css.ejs') %>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <%- include('../Header/Admin_Header.ejs') %>
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+                <div class="container-fluid">
+
+                    <h1 class="manage-appointments-heading fw-bold mb-1">
+                        Manage Appointments
+                    </h1>
+                    <p class="text-muted mb-4">
+                        View, approve, and manage patient appointments and consultation schedules.
+                    </p>
+
+                    <% if(success){ %>
+
+                        <div class="alert alert-success alert-dismissible fade show">
+
+                            <%= success %>
+
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+                        </div>
+                        <% } %>
+
+                            <% if(error){ %>
+
+                                <div class="alert alert-danger alert-dismissible fade show">
+
+                                    <%= error %>
+
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+                                </div>
+
+                                <% } %>
+
+                                    <div class="card eyra-table-card mt-5">
+
+                                        <div class="eyra-table-card-body">
+
+                                            <div class="table-responsive">
+
+                                                <table class="table table-hover eyra-appointments-table align-middle"
+                                                    id="appointments_list">
+
+                                                    <thead>
+
+                                                        <tr>
+
+                                                            <th>#</th>
+                                                            <th>Patient</th>
+                                                            <th>Phone</th>
+                                                            <th>Date</th>
+                                                            <th>Time</th>
+                                                            <th>Issue</th>
+                                                            <th>Status</th>
+                                                            <th>Action</th>
+
+                                                        </tr>
+
+                                                    </thead>
+
+                                                    <tbody>
+
+                                                        <% appointment_record.forEach((data)=> { %>
+
+                                                            <tr>
+
+                                                                <td>
+                                                                    <%= data.id %>
+                                                                </td>
+
+                                                                <td>
+
+                                                                    <div>
+
+                                                                        <h6 class="mb-0 fw-bold">
+
+                                                                            <%= data.name %>
+
+                                                                        </h6>
+
+                                                                        <small class="text-muted">
+
+                                                                            <%= data.email %>
+
+                                                                        </small>
+
+                                                                    </div>
+
+                                                                </td>
+
+                                                                <td>
+                                                                    <%= data.phone %>
+                                                                </td>
+
+                                                                <td>
+                                                                    <span class="badge date bg-primary">
+                                                                    <%= data.preferred_date %>
+                                                                    </span>
+                                                                </td>
+
+                                                                <td>
+                                                                    <span class="badge time bg-success">
+                                                                    <%= data.prefer_time %>
+                                                                    </span>
+                                                                </td>
+
+                                                                <td><%= data.issue %></td>
+
+                                                                <td>
+
+                                                                    <% if(data.status=="Completed" ) { %>
+
+                                                                        <span  class="eyra-status-completed">
+
+                                                                            Completed
+
+                                                                        </span>
+
+                                                                        <% } else if(data.status=="Approved" ) { %>
+
+                                                                            <span class="eyra-status-approved">
+
+                                                                                Approved
+
+                                                                            </span>
+
+                                                                            <% } else if(data.status=="Pending" ) { %>
+
+                                                                                <span
+                                                                                    class="eyra-status-pending">
+
+                                                                                    Pending
+
+                                                                                </span>
+
+                                                                                <% } else if(data.status=="Visited" ) {
+                                                                                    %>
+
+                                                                                    <span
+                                                                                        class="eyra-status-visited">
+
+                                                                                        Visited
+
+                                                                                    </span>
+
+                                                                                    <% } else { %>
+
+                                                                                        <span class="eyra-status-cancelled">
+
+                                                                                            Rejected
+
+                                                                                        </span>
+
+                                                                                        <% } %>
+
+                                                                </td>
+
+                                                                <td>
+                                                                    <div class="eyra-action-buttons">
+
+                                                                    <a href="/view_appointment/<%= data.id %>" class="eyra-btn-view-user">
+                                                                        <i class="bi bi-eye-fill me-1"></i>
+                                                                        View
+                                                                    </a>
+
+                                                                    <!-- <a href="/approve_appointment/<%= data.id %>"
+                                                        class="btn btn-success btn-sm"
+                                                        onclick="return confirm('Are you sure you want to approve this appointment?')">
+
+                                                        Approve
+
+                                                    </a>
+
+                                                    <a href="/reject_appointment/<%= data.id %>"
+                                                        class="btn btn-warning btn-sm"
+                                                        onclick="return confirm('Reject this appointment?')">
+
+                                                        Reject
+
+                                                    </a> -->
+
+                                                                    <a href="/delete_appointment/<%= data.id %>" class="eyra-btn-delete-user"
+                                                                        onclick="return confirm('Delete this appointment?')">
+                                                                        <i class="bi bi-trash-fill me-1"></i>
+                                                                        Delete
+                                                                    </a>
+                                                    </div>
+                                                                </td>
+
+                                                            </tr>
+
+                                                            <% }) %>
+
+                                                    </tbody>
+
+                                                </table>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                </div>
+
+            </div>
+
+    </div>
+
+    <%- include('../CDN/datatable_js.ejs') %>
+        <%- include('../Footer/Dashboard_Footer.ejs') %>
+            <%- include('../CDN/javascript.ejs') %>
+
+                <script>
+                    $('#appointments_list').DataTable({
+                        order: [[0, 'desc']]
+                    });
+                </script>
+
+</body>
+
+</html>

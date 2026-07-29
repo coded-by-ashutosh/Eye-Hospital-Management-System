@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        My Appointments
+    </title>
+
+    <%- include('../CDN/bootstrap.ejs') %>
+     <%- include('../CDN/datatable_css.ejs') %>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <%- include('../Header/Doctor_Header.ejs') %>
+
+        <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+            <div class="container-fluid">
+
+                <h1 class="appointments-heading fw-bold mb-1">
+                    My Appointments
+                </h1>
+                <p class="text-muted mb-4">
+                    View your assigned appointments, monitor consultation progress, and manage patient visits efficiently.
+                </p>
+
+                <div class="card eyra-table-card mt-5">
+
+                        <div class="eyra-table-card-body">
+
+                            <div class="table-responsive">
+
+                            <table class="table table-hover doctor-appointments-table align-middle" id="doctor_appointments_list">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Patient
+                                        </th>
+
+                                        <th>
+                                            Date
+                                        </th>
+
+                                        <th>
+                                            Time
+                                        </th>
+
+                                        <th>
+                                            Status
+                                        </th>
+
+                                        <th>
+                                            Action
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <% appointments.forEach((data)=> { %>
+
+                                    <tr>
+
+                                        <td>
+                                            <%= data.name %>
+                                        </td>
+
+                                        <td>
+                                            <span class="badge date bg-primary">
+                                                <%= data.preferred_date %>
+                                            </span>
+                                        </td>
+
+                                        <td>
+                                            <span class="badge time bg-success">
+                                                <%= data.prefer_time %>
+                                            </span>
+                                        </td>
+
+                                        <td>
+                                        
+                                            <% if(data.status=="Approved" ) { %>
+                                        
+                                                <span class="eyra-status-approved">
+                                        
+                                                    <%= data.status %>
+                                        
+                                                </span>
+                                        
+                                                <% } else if(data.status=="Visited" ) { %>
+                                        
+                                                    <span class="eyra-status-visited">
+                                        
+                                                        <%= data.status %>
+                                        
+                                                    </span>
+                                        
+                                                    <% } else if(data.status=="Completed" ) { %>
+                                        
+                                                        <span class="eyra-status-completed">
+                                        
+                                                            <%= data.status %>
+                                        
+                                                        </span>
+                                        
+                                                        <% } else { %>
+                                        
+                                                            <span class="eyra-status-pending">
+                                        
+                                                                <%= data.status %>
+                                        
+                                                            </span>
+                                        
+                                                            <% } %>
+                                        
+                                        </td>
+
+                                        <td>
+
+                                            <a href="/doctor/view_appointment/<%= data.id %>"
+                                            class="eyra-btn-view-user-sm">
+                                            <i class="bi bi-eye-fill me-1"></i>
+                                                View
+
+                                            </a>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <% }) %>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <%- include('../CDN/datatable_js.ejs') %>
+
+    <%- include('../Footer/Dashboard_Footer.ejs') %>
+
+    <%- include('../CDN/javascript.ejs') %>
+
+    <script>
+        $('#doctor_appointments_list').DataTable();
+    </script>
+
+</body>
+
+</html>

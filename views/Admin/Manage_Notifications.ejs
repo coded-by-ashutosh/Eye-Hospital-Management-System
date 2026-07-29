@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Doctors</title>
+
+    <%- include('../CDN/bootstrap.ejs') %>
+            <%- include('../CDN/datatable_css.ejs') %>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <%- include('../Header/Admin_Header.ejs') %>
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <!-- <h2 class="fw-bold">
+                            Manage Doctors
+                        </h2> -->
+
+                        <div>
+
+                        <h1 class="manage-notifications-heading fw-bold mb-1">
+                            Manage Notifications
+                        </h1>
+                        <p class="text-muted mb-0">
+                            Create, publish, and monitor notifications delivered to patients and staff.
+                        </p>
+
+                        </div>
+
+                        <a href="/push_notifications" class="eyra-btn-add-doctor">
+
+                            <i class="bi bi-megaphone-fill me-2"></i>Publish Notification
+
+                        </a>
+
+                    </div>
+
+                    <div class="card eyra-table-card mt-5">
+
+                        <div class="eyra-table-card-body">
+
+                            <div class="table-responsive">
+
+                                <table class="table table-hover eyra-notifications-table align-middle" id="notifications_list">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>#</th>
+                                            <th>Title</th>
+                                            <th>Message</th>
+                                            <th>Published By</th>
+                                            <th>Date & Time</th>
+                                            <th>Action</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        <% if(notification_record.length>0) { %>
+
+                                            <% notification_record.forEach((data)=> { %>
+
+                                                <tr>
+
+                                                    <td>
+                                                        <%= data.id %>
+                                                    </td>
+
+                                                    <td>
+                                                        <%= data.title %>
+                                                    </td>
+
+                                                    <td class="eyra-notification-message">
+                                                        <%= data.message %>
+                                                    </td>
+
+                                                    <td>
+                                                        <%= data.publish_by %>
+                                                    </td>
+
+                                                    <td>
+                                                       <span class="badge date bg-primary">
+                                                         <%= new Date(data.date_time).toLocaleString('en-CA', {year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit',minute:'2-digit', hour12:true }).replace(',', ' |' ) %>
+                                                       </span>
+                                                    </td>
+
+                                                    <td>
+
+                                                        <a href="/delete_notification/<%= data.id %>"
+                                                            class="eyra-btn-delete btn-sm"
+                                                            onclick="return confirm('Delete this notification?')">
+                                                            <i class="bi bi-trash-fill me-1"></i>Delete
+                                                        </a>
+
+                                                    </td>
+
+                                                </tr>
+
+                                                <% }) %>
+
+                                                   
+
+                                                        <% } %>
+
+                                    </tbody>
+
+                                </table>
+
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                    <% if(locals.msg) {%>
+
+                        <div class="text-center text-success mt-5 pb-3 fw-semibold">
+                            <h5>
+                                <%=msg%>
+                            </h5>
+                        </div>
+
+                        <% } %>
+
+                </div>
+
+
+
+            </div>
+
+    </div>
+
+    <%- include('../CDN/datatable_js.ejs') %>
+        <%- include('../Footer/Dashboard_Footer.ejs') %>
+            <%- include('../CDN/javascript.ejs') %>
+
+                <script>
+                    $('#notifications_list').DataTable({
+                        order: [[0, 'desc'],
+                    ],
+                    columnDefs: [
+                        {
+                          targets: 2,
+                          width: '300px'  
+                        }
+                    ]
+                    });
+                </script>
+
+</body>
+
+</html>

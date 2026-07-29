@@ -1,0 +1,147 @@
+<!-- BOOK APPOINTMENT MODAL -->
+<div class="modal fade" id="bookAppointmentModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h3 class="modal-title text-light fw-semibold text-center w-100">Book an Appointment</h3>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+
+        <form action="/bookappointment" method="POST" class="eyra-form">
+
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" name="name" required minlength="3">
+            </div>
+
+            <div class="col-md-6 mb-4">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-control" name="email" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" name="phone" required>
+            </div>
+
+            <div class="col-md-6 mb-4">
+              <label class="form-label">Date</label>
+              <input type="date" class="form-control" name="date" id="appointmentDate" required>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Time</label>
+            <input type="time" class="form-control" name="time" id="appointmentTime" required>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Address</label>
+            <textarea class="form-control" name="address" rows="4" required></textarea>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Describe Your Eye Problem</label>
+            <textarea class="form-control" name="issue" rows="4" placeholder="Blur vision, headache, eye redness etc..."
+              required required minlength="4"></textarea>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="eyra-submit-btn">
+              Submit
+            </button>
+          </div>
+
+          <div class="eyra-clinic-timing">
+
+            <i class="bi bi-clock-fill"></i>
+
+            Clinic Timing: Monday – Saturday (9:00 AM – 8:00 PM)
+
+          </div>
+
+        </form>
+
+        <!--MESSAGE -->
+        <!-- <div class="mt-4 text-success text-center">
+          <% if(locals.msg){ %>
+            <h5><%= msg %></h5>
+          <% } %>
+        </div> -->
+
+        <% if(locals.mesg) { %>
+          <script>
+            alert("<%= mesg %>")
+          </script>
+          <% } %>
+
+            <script>
+
+              document
+                .getElementById("appointmentDate")
+                .addEventListener("change", function () {
+
+                  const selectedDate =
+                    new Date(this.value)
+
+                  const day =
+                    selectedDate.getDay()
+
+                  // Sunday = 0
+
+                  if (day === 0) {
+                    alert(
+                      "Appointments available only Monday to Saturday"
+                    )
+
+                    this.value = ""
+                  }
+
+                })
+
+              document
+                .getElementById("appointmentTime")
+                .addEventListener("change", function () {
+
+                  const selectedTime = this.value
+
+                  if (!selectedTime) return
+
+                  const [hour, minute] =
+                    selectedTime.split(":").map(Number)
+
+                  const totalMinutes =
+                    hour * 60 + minute
+
+                  const clinicStart = 9 * 60      // 9:00 AM
+                  const clinicEnd = 20 * 60       // 8:00 PM
+
+                  if (
+                    totalMinutes < clinicStart ||
+                    totalMinutes > clinicEnd
+                  ) {
+
+                    alert(
+                      "Appointments available only between 9:00 AM and 8:00 PM"
+                    )
+
+                    this.value = ""
+                  }
+
+                })
+
+
+            </script>
+
+      </div>
+    </div>
+  </div>
+</div>

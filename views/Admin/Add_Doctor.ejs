@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Doctor</title>
+
+    <%- include('../CDN/bootstrap.ejs') %>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <%- include('../Header/Admin_Header.ejs') %>
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <div>
+
+                            <h1 class="manage-doctors-heading fw-bold mb-1">
+                                Add Doctor
+                            </h1>
+
+                            <p class="text-muted mb-0">
+                                Create a new doctor profile, login credentials, and medical details.
+                            </p>
+
+                        </div>
+
+                        <a href="/manage_doctors" class="eyra-btn-back">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Back
+                        </a>
+
+                    </div>
+
+                    <div class="eyra-form-card mt-5">
+
+
+                        <% if(success){ %>
+
+                            <div class="alert alert-success">
+                                <%= success %>
+                            </div>
+
+                            <% } %>
+
+                                <% if(error){ %>
+
+                                    <div class="alert alert-danger">
+                                        <%= error %>
+                                    </div>
+
+                                    <% } %>
+
+                                        <form action="/insert_doctor" method="POST" enctype="multipart/form-data">
+
+                                            <div class="eyra-form-section">
+
+                                                <h5>
+                                                    <i class="bi bi-person-vcard-fill me-2"></i>
+                                                    Doctor Information
+                                                </h5>
+
+                                            </div>
+
+                                            <div class="row">
+
+                                                <div class="col-md-6 mb-3">
+
+                                                    <label class="form-label">
+                                                        Doctor Name
+                                                    </label>
+
+                                                    <input type="text" name="doctor_name" class="form-control" required>
+
+                                                </div>
+
+
+                                                <div class="col-md-6 mb-3">
+
+                                                    <label class="form-label">
+                                                        Speciality
+                                                    </label>
+
+                                                    <input type="text" name="speciality" class="form-control" required>
+
+                                                </div>
+
+                                                <div class="col-md-6 mb-3">
+
+                                                    <label class="form-label">
+                                                        Experience
+                                                    </label>
+
+                                                    <input type="text" name="experience" class="form-control"
+                                                        placeholder="5 Years" required>
+
+                                                </div>
+
+                                                <div class="col-md-6 mb-3">
+
+                                                    <label class="form-label">
+                                                        Qualification
+                                                    </label>
+
+                                                    <input type="text" name="qualification" class="form-control">
+
+                                                </div>
+
+                                                <div class="col-md-12 mb-4">
+
+                                                    <label class="form-label">
+                                                        Description
+                                                    </label>
+
+                                                    <textarea name="description" rows="4"
+                                                        class="form-control"></textarea>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="eyra-form-section mt-4">
+
+                                                <h5>
+                                                    <i class="bi bi-file-medical-fill me-2"></i>
+                                                    Medical Profile
+                                                </h5>
+
+                                            </div>
+
+                                            <div class="row">
+
+
+
+                                                <div class="col-md-6 mb-4">
+
+                                                    <label class="form-label fw-semibold">
+                                                        Doctor Photograph
+                                                    </label>
+
+                                                    <input type="file" name="doctor_image" class="form-control"
+                                                        required>
+
+                                                </div>
+
+                                                <div class="col-md-6 mb-4">
+
+                                                    <label class="form-label fw-semibold">
+                                                        Doctor Signature
+                                                    </label>
+
+                                                    <input type="file" name="doctor_signature" class="form-control"
+                                                        accept="image/*" required>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="eyra-form-section mt-4">
+
+                                                <h5>
+                                                    <i class="bi bi-shield-lock-fill me-2"></i>
+                                                    Login Credentials
+                                                </h5>
+
+                                            </div>
+
+                                            <div class="row">
+
+                                                <div class="col-md-6 mb-3">
+
+                                                    <label class="form-label">
+                                                        Doctor Email
+                                                    </label>
+
+                                                    <input type="email" name="email" class="form-control" required>
+
+                                                </div>
+
+                                                <div class="col-md-6 mb-3">
+
+                                                    <label class="form-label">
+                                                        Doctor Password
+                                                    </label>
+
+                                                    <input type="password" name="password" class="form-control"
+                                                        required>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="text-end mt-4">
+                                                <button type="submit" class="eyra-btn-add-doctor">
+                                                    <i class="bi bi-plus-circle-fill me-2"></i>
+                                                    Add Doctor
+                                                </button>
+                                            </div>
+
+                                        </form>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+    </div>
+
+
+
+    <%- include('../Footer/Dashboard_Footer.ejs') %>
+        <%- include('../CDN/javascript.ejs') %>
+
+</body>
+
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Write Prescription
+    </title>
+
+    <%- include('../CDN/bootstrap.ejs') %>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <%- include('../Header/Doctor_Header.ejs') %>
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+                <div class="container-fluid">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                    
+                        <div>
+                    
+                            <h1 class="manage-appointments-heading fw-bold mb-1">
+                    
+                                Write Prescription
+                    
+                            </h1>
+                    
+                            <p class="text-muted mb-0">
+                    
+                                Prepare a detailed prescription, record diagnosis, medicines and follow-up instructions for the patient.
+                    
+                            </p>
+                    
+                        </div>
+                    
+                        <a href="/doctor/view_appointment/<%= appoint_data.id %>" class="eyra-btn-back">
+                    
+                            <i class="bi bi-arrow-left me-2"></i>
+                    
+                            Back
+                    
+                        </a>
+                    
+                    </div>
+
+                    <div class="eyra-form-card mt-5">
+
+                    <% if(success){ %>
+
+                        <div class="alert alert-success alert-dismissible fade show">
+
+                            <%= success %>
+
+                                <button type="button" class="btn-close" data-bs-dismiss="alert">
+                                </button>
+
+                        </div>
+
+                        <% } %>
+
+                            <% if(error){ %>
+
+                                <div class="alert alert-danger alert-dismissible fade show">
+
+                                    <%= error %>
+
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert">
+                                        </button>
+
+                                </div>
+
+                                <% } %>
+
+                                    
+
+                                        
+
+                                            <form action="/doctor/save_prescription" method="post">
+
+                                                <input type="hidden" name="appointment_id"
+                                                    value="<%= appoint_data.id %>">
+
+                                                <input type="hidden" name="patient_email"
+                                                    value="<%= appoint_data.email %>">
+
+                                                 <!-- ================= Patient Information ================= -->
+
+    <div class="eyra-form-section mt-2">
+        <h5>
+            <i class="bi bi-person-badge-fill me-2"></i>
+            Patient Information
+        </h5>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-md-4">
+
+            <div class="eyra-info-card">
+
+                <div class="eyra-info-label">
+                    <i class="bi bi-person-fill"></i>
+                    Patient Name
+                </div>
+
+                <div class="eyra-info-value">
+                    <%= appoint_data.name %>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="eyra-info-card">
+
+                <div class="eyra-info-label">
+                    <i class="bi bi-calendar-check-fill"></i>
+                    Preferred Date
+                </div>
+
+                <div class="eyra-info-value">
+                    <%= appoint_data.preferred_date %>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="eyra-info-card">
+
+                <div class="eyra-info-label">
+                    <i class="bi bi-clock-fill"></i>
+                    Preferred Time
+                </div>
+
+                <div class="eyra-info-value">
+                    <%= appoint_data.prefer_time %>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="eyra-form-section mt-4">
+<h5>
+<i class="bi bi-heart-pulse-fill me-2"></i>
+
+Clinical Notes
+
+</h5>
+
+</div>
+
+                                                    <div class="col-12 mb-4">
+
+                                                        <label class="form-label fw-semibold">
+
+                                                            Symptoms
+
+                                                        </label>
+
+                                                        <textarea name="symptoms" class="form-control" rows="3"
+                                                            placeholder="Enter patient symptoms" required></textarea>
+
+                                                    </div>
+
+                                                    <div class="col-12 mb-4">
+
+                                                        <label class="form-label fw-semibold">
+
+                                                            Diagnosis
+
+                                                        </label>
+
+                                                        <textarea name="diagnosis" class="form-control" rows="3"
+                                                            placeholder="Enter diagnosis" required></textarea>
+
+                                                    </div>
+
+                                                    <div class="col-12 mb-4">
+
+                                                        <div class="col-12 mt-3 mb-2">
+
+<div class="eyra-form-section mt-5">
+<h5>
+<i class="bi bi-capsule-pill me-2"></i>
+
+Medicines
+
+</h5>
+
+</div>
+                                                    
+                                                        
+                                                    
+                                                        <div id="medicineWrapper">
+                                                    
+                                                            <div class="row medicineRow mb-3">
+                                                    
+                                                                <div class="col-md-4">
+                                                                    <input type="text" class="form-control medicine_name" placeholder="Medicine Name" required>
+                                                                </div>
+                                                    
+                                                                <div class="col-md-2">
+                                                                    <input type="text" class="form-control dosage" placeholder="Dosage">
+                                                                </div>
+                                                    
+                                                                <div class="col-md-1 text-center">
+                                                                    <label>Morning</label>
+                                                                    <input type="checkbox" class="form-check-input morning">
+                                                                </div>
+                                                    
+                                                                <div class="col-md-1 text-center">
+                                                                    <label>Afternoon</label>
+                                                                    <input type="checkbox" class="form-check-input afternoon">
+                                                                </div>
+                                                    
+                                                                <div class="col-md-1 text-center">
+                                                                    <label>Night</label>
+                                                                    <input type="checkbox" class="form-check-input night">
+                                                                </div>
+                                                    
+                                                                <div class="col-md-1">
+                                                                    <input type="number" class="form-control days" placeholder="Days" min="1" required>
+                                                                </div>
+                                                    
+                                                                <div class="col-md-2 d-flex align-items-end">
+                                                                    <button type="button" class="eyra-btn-delete-user removeMedicine">
+                                                                    <i class="bi-trash-fill"></i>
+                                                                        Remove
+                                                    
+                                                                    </button>
+                                                                </div>
+                                                    
+                                                            </div>
+                                                    
+                                                        </div>
+                                                    
+                                                        <div class="mt-4">
+                                                        <button
+type="button"
+class="eyra-btn-add-doctor"
+id="addMedicineBtn">
+
+<i class="bi bi-plus-circle me-1"></i>
+
+Add Medicine
+
+</button>
+                                                        </div>                                                
+                                                        <input type="hidden" name="medicines" id="finalMedicines">
+                                                    
+                                                    </div>
+
+                                                    <div class="col-12 mb-4">
+
+                                                        <div class="col-12 mt-3 mb-2">
+
+           <div class="eyra-form-section mt-5">                                                 
+
+<h5 class="fw-bold border-bottom pb-2">
+
+<i class="bi bi-journal-medical me-2"></i>
+
+Follow-up & Advice
+
+</h5>
+</div>
+</div>
+
+                                                        <label class="form-label fw-semibold">
+
+                                                            Doctor Advice
+
+                                                        </label>
+
+                                                        <textarea name="advice" class="form-control" rows="4"
+                                                            required></textarea>
+
+                                                    </div>
+
+                                                    <div class="col-md-6 mb-4">
+
+                                                        <label class="form-label fw-semibold">
+
+                                                            Next Visit Date
+
+                                                        </label>
+
+                                                        <input type="date" name="next_visit_date" class="form-control">
+
+                                                    </div>
+
+                                                    <div class="text-end col-12">
+
+                                                        <button
+type="submit"
+class="btn btn-success px-5 py-2">
+
+<i class="bi bi-floppy-fill me-2"></i>
+
+Save Prescription
+
+</button>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </form>
+
+                                        
+
+                                    
+
+                </div>
+
+                </div>
+            </div>
+
+    </div>
+
+    <script>
+
+        document
+            .getElementById('addMedicineBtn')
+            .addEventListener('click', function () {
+
+                const row = document.querySelector('.medicineRow')
+                    .cloneNode(true);
+
+                row.querySelectorAll('input').forEach(input => {
+
+                    if (input.type == "checkbox") {
+                        input.checked = false;
+                    }
+                    else {
+                        input.value = '';
+                    }
+
+                });
+
+                document
+                    .getElementById('medicineWrapper')
+                    .appendChild(row);
+
+            });
+
+        document.addEventListener('click', function (e) {
+
+            if (e.target.classList.contains('removeMedicine')) {
+                const rows =
+                    document.querySelectorAll('.medicineRow');
+
+                if (rows.length > 1) {
+                    e.target.closest('.medicineRow').remove();
+                }
+            }
+
+        });
+
+        document.querySelector('form')
+            .addEventListener('submit', function () {
+
+                let medicineText = '';
+
+                document
+                    .querySelectorAll('.medicineRow')
+                    .forEach((row, index) => {
+
+                        const name =
+                            row.querySelector('.medicine_name').value;
+
+                        const dosage =
+                            row.querySelector('.dosage').value;
+
+                        const morning =
+                            row.querySelector('.morning').checked
+                                ? 'Morning ' : '';
+
+                        const afternoon =
+                            row.querySelector('.afternoon').checked
+                                ? 'Afternoon ' : '';
+
+                        const night =
+                            row.querySelector('.night').checked
+                                ? 'Night ' : '';
+
+                        const days =
+                            row.querySelector('.days').value;
+
+                        medicineText +=
+                            `${index + 1}. ${name}
+    (${dosage})
+    - ${morning}${afternoon}${night}
+    - ${days} Days\n`;
+
+                    });
+
+                document
+                    .getElementById('finalMedicines')
+                    .value = medicineText;
+
+            });
+
+    </script>
+
+    <%- include('../CDN/javascript.ejs') %>
+
+</body>
+
+</html>

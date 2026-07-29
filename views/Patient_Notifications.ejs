@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Notifications
+    </title>
+
+    <%- include('./CDN/bootstrap.ejs') %>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <%- include('./Header/Patient_Header.ejs') %>
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+                <div class="container-fluid">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <h2 class="eyra-page-heading">
+
+                            <!-- <i class="bi bi-bell-fill me-2"></i> -->
+
+                            Notifications
+
+                        </h2>
+
+                        <a href="/archived_notifications" class="btn eyra-action-btn">
+
+                            <i class="bi bi-archive-fill me-2"></i>
+
+                            Archived
+
+                        </a>
+
+                    </div>
+
+
+                    <% if(notifications.length===0){ %>
+
+                        <div class="eyra-empty-box">
+
+                            <i class="bi bi-bell-slash fs-1"></i>
+
+                            <p class="mt-3 mb-0">
+
+                                No notifications available
+
+                            </p>
+
+                        </div>
+
+                        <% } %>
+
+
+                            <% notifications.forEach((item)=>{ %>
+
+                                <div class="eyra-notification-card
+
+                                   <%= item.is_read==" no" ? 'eyra-unread' : '' %>
+
+                                    mb-3">
+
+                                    <div class="d-flex justify-content-between">
+
+                                        <div>
+
+                                            <h5 class="eyra-title">
+
+                                                <%= item.title %>
+
+                                                    <% if(item.is_read=="no" ){ %>
+
+                                                        <span class="badge bg-primary ms-2">
+
+                                                            NEW
+
+                                                        </span>
+
+                                                        <% } %>
+
+                                            </h5>
+
+                                        </div>
+
+                                        <small class="text-muted">
+
+                                            <%= new Date(item.created_at).toLocaleString( 'en-IN' ,
+                                                {day:'2-digit',month:'short',year:'numeric',
+                                                hour:'2-digit',minute:'2-digit'}) %>
+
+                                        </small>
+
+                                    </div>
+
+                                    <p class="mt-2 mb-3">
+
+                                        <%= item.message %>
+
+                                    </p>
+
+
+
+                                    <div class="d-flex gap-2">
+
+                                        <% if(item.action_url){ %>
+
+                                            <a href="<%= item.action_url %>" class="btn btn-primary btn-sm">
+
+                                                <i class="bi bi-box-arrow-up-right me-1"></i>
+
+                                                Open
+
+                                            </a>
+
+                                            <% } %>
+
+                                                <% if(item.is_read=="yes" ){ %>
+
+                                                    <a href="/archive_notification/<%= item.id %>"
+                                                        onclick="return confirm('Archive notification?')"
+                                                        class="btn btn-outline-secondary btn-sm">
+
+                                                        <i class="bi bi-archive"></i>
+
+                                                        Archive
+
+                                                    </a>
+
+                                                    <% } %>
+
+                                    </div>
+
+                                </div>
+
+                                <% }) %>
+
+                </div>
+
+            </div>
+
+    </div>
+
+    <%- include('chat/chat.ejs') %>
+        <%- include('./CDN/javascript.ejs') %>
+
+</body>
+
+</html>

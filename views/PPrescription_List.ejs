@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        My Prescriptions
+
+    </title>
+
+    <%- include('CDN/bootstrap.ejs') %>
+        <%- include('CDN/datatable_css.ejs') %>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <%- include('Header/Patient_Header.ejs') %>
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+                <div class="container-fluid mb-4">
+
+                    <h1 class="appointments-heading fw-bold mb-2">
+
+                        My Prescriptions
+
+                    </h1>
+
+                    <p class="text-muted mb-0">
+
+                        Access your prescriptions and treatment documents anytime
+
+                    </p>
+
+                </div>
+
+                <div class="card eyra-table-card mt-5">
+
+                    <div class="eyra-table-card-body">
+
+                        <% if(prescription_record.length> 0){ %>
+
+                            <div class="table-responsive">
+
+                                <table class="table table-hover eyra-appointment-table align-middle"
+                                    id="prescription_list">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <!-- <th>#</th> -->
+
+                                            <th>Doctor</th>
+
+                                            <th>Appointment Date</th>
+
+                                            <th>Status</th>
+
+                                            <th>Action</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        <% prescription_record.forEach((data)=> { %>
+
+                                            <tr>
+
+                                                <!-- <td>
+                                                    <%= data.id %>
+                                                </td> -->
+
+                                                <td>
+                                                    <%= data.doctor_name %>
+                                                </td>
+
+                                                <td>
+                                                    <span class="badge date bg-primary">
+                                                        <%= data.preferred_date %>
+                                                    </span>
+                                                </td>
+
+                                                <td>
+
+                                                                <% if(data.status=="Completed" ) { %>
+
+                                                                    <span class="eyra-status-completed">
+
+                                                                        Completed
+
+                                                                    </span>
+
+                                                                    <% } else if(data.status=="Approved" ) { %>
+
+                                                                        <span class="eyra-status-approved">
+
+                                                                            Approved
+
+                                                                        </span>
+
+                                                                        <% } else if(data.status=="Visited" ) { %>
+
+                                                                            <span class="eyra-status-visited">
+
+                                                                                Visited
+
+                                                                            </span>
+
+                                                                            <% } else { %>
+
+                                                                                <span
+                                                                                    class="eyra-status-pending">
+
+                                                                                    Pending
+
+                                                                                </span>
+
+                                                                                <% } %>
+
+                                                            </td>
+
+                                                <td>
+
+                                                    <a href="/view_prescription/<%= data.id %>"
+                                                        class="eyra-btn-view btn-sm">
+
+                                                        View Prescription
+
+                                                    </a>
+
+                                                </td>
+
+                                            </tr>
+
+                                            <% }) %>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                            <% } else { %>
+                                <div class="text-center py-5">
+
+                                    <p class="appointment-text text-muted mb-3">
+
+                                        No prescriptions available yet
+
+                                    </p>
+
+                                </div>
+
+                                <% } %>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+    </div>
+
+    </div>
+
+
+<%- include('chat/chat.ejs') %>
+    <%- include('CDN/datatable_js.ejs') %>
+        <%- include('CDN/javascript.ejs') %>
+
+            <script>
+
+                $('#prescription_list').DataTable({
+                        order: [[0, 'desc']]
+                    });
+
+            </script>
+
+</body>
+
+</html>

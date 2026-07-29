@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <%- include('CDN/bootstrap.ejs') %>
+</head>
+
+<body>
+
+
+
+    <div class="d-flex">
+
+        <%- include('Header/Patient_Header.ejs') %>
+
+        <%- include('PDashboard_bar/pbar.ejs') %>
+            
+
+    </div>
+
+
+
+    <% {%>
+
+        <script>
+            const appointmentGraphData =
+            <%- JSON.stringify(appointment_graph || []) %>
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+
+                /* APPOINTMENTS */
+                const appointmentCtx = document
+                    .getElementById("appointmentChart")
+                    .getContext("2d");
+
+                new Chart(appointmentCtx, {
+                    type: "line",
+                    data: {
+                        labels: appointmentGraphData.map(item => item.status),
+
+                        datasets: [{
+
+                            label: "Appointments",
+
+                            data: appointmentGraphData.map(item => item.total),
+                            borderColor: "#0D6EFD",
+                            backgroundColor: "rgba(13,110,253,0.15)",
+                            tension: 0.4,
+                            fill: true,
+                            pointRadius: 4,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            borderWidth: 3,
+                            grid: {
+                                color: "rgba(0,0,0,0.06)"
+                            }
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
+
+                /* MEDICAL DATA */
+                const healthCtx = document
+                    .getElementById("healthChart")
+                    .getContext("2d");
+
+                new Chart(healthCtx, {
+                    type: "doughnut",
+                    data: {
+                        labels: [
+
+                            "Prescriptions",
+
+                            "Completed Visits",
+
+                            "Pending Appointments"
+
+                        ],
+                        datasets: [{
+    
+    data: [
+        <%= health_record.total_prescriptions || 0 %>,
+        <%= health_record.completed_visits || 0 %>,
+        <%= health_record.pending_appointments || 0 %>
+    ],
+
+    backgroundColor: [
+        "#0D6EFD",
+        "#2ECC71",
+        "#F39C12"
+    ]
+}]
+                    },
+                    options:
+                    {
+                        responsive: true,
+
+                        cutout: '65%',
+
+                        plugins:
+                        {
+                            legend:
+                            {
+                                position: 'bottom',
+
+                                labels:
+                                {
+                                    padding: 20,
+                                    usePointStyle: true,
+                                    pointStyle: 'circle',
+                                    font:
+                                    {
+                                        size: 13,
+                                        weight: '600'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                })
+            });
+        </script>
+
+
+        <% } %>
+
+
+
+            <%- include('chat/chat.ejs') %>
+            <!-- <%- include('Footer/Dashboard_Footer.ejs') %> 
+            <%- include('CDN/javascript.ejs') %>
+</body>
+
+</html>

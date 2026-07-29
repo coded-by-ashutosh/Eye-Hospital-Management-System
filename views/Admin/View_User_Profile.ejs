@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Patient Profile</title>
+
+    <%- include('../CDN/bootstrap.ejs') %>
+
+</head>
+
+<body>
+
+<div class="d-flex">
+
+    <%- include('../Header/Admin_Header.ejs') %>
+
+    <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+        <div class="container-fluid">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+
+        <h1 class="view-users-heading fw-bold mb-1">
+            Patient Profile
+        </h1>
+
+        <p class="text-muted mb-0">
+            View complete patient information, medical history, and account details.
+        </p>
+
+    </div>
+
+    <a href="/user_account" class="eyra-btn-back">
+
+        <i class="bi bi-arrow-left me-2"></i>
+
+        Back
+
+    </a>
+
+</div>
+
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden mt-5">
+
+                <div class="card-body p-5">
+
+                    <div class="row">
+
+                        <!-- LEFT SIDE -->
+
+                        <div class="col-lg-4 text-center border-end">
+
+                            <img
+                            src="/public/Patients_Photo/<%= user_data.photo || 'default.png' %>" class="user-avatar">
+                            <h3 class="mt-4 mb-1 fw-bold profile-basic">
+                                <%= user_data.name %>
+                            </h3>
+                            
+                            <p class="user-email mb-3 me-2">
+                                <i class="bi bi-envelope-fill me-1"></i>
+                                <%= user_data.email %>
+                            </p>
+
+                            <% if(user_data.profile_complete=="yes") { %>
+
+                            <span class="badge bg-success fs-6 px-3 py-2">
+                                <i class="bi bi-patch-check-fill me-1"></i>
+                                Profile Complete
+                            </span>
+                            
+                            <% } else { %>
+                            
+                                <span class="badge bg-danger fs-6 px-3 py-2">
+                                    <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                                    Profile Incomplete
+                                </span>
+
+                            <% } %>
+
+                        </div>
+
+                        <!-- RIGHT SIDE -->
+
+                        <div class="col-lg-8">
+                        
+                            <div class="row g-3">
+                        
+                                <div class="col-md-6">
+                                    <div class="eyra-info-card">
+                                        <div class="eyra-info-label">
+                                            <i class="bi bi-phone-fill"></i>
+                                            Mobile Number
+                                        </div>
+                        
+                                        <div class="eyra-info-value">
+                                            <%= user_data.mobile || 'Not Available' %>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="col-md-6">
+                                    <div class="eyra-info-card">
+                                        <div class="eyra-info-label">
+                                            <i class="bi bi-person-fill"></i>
+                                            Gender
+                                        </div>
+                        
+                                        <div class="eyra-info-value">
+                                            <%= user_data.gender || 'Not Available' %>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="col-md-6">
+                                    <div class="eyra-info-card">
+                                        <div class="eyra-info-label">
+                                            <i class="bi bi-card-text"></i>
+                                            Ayushman Card
+                                        </div>
+                        
+                                        <div class="eyra-info-value">
+                                            <%= user_data.ayushmaan_card || 'Not Available' %>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="col-md-6">
+                                    <div class="eyra-info-card">
+                                        <div class="eyra-info-label">
+                                            <i class="bi bi-calendar-check-fill"></i>
+                                            Registration Date
+                                        </div>
+                        
+                                        <div class="eyra-info-value">
+                                            <%= new Date(user_data.reg_date).toLocaleString( 'en-IN' , {day:'2-digit',month:'short',year:'numeric',
+                                                hour:'2-digit',minute:'2-digit'}) %>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="col-12">
+                                    <div class="eyra-large-card">
+                                        <div class="eyra-info-label">
+                                            <i class="bi bi-geo-alt-fill"></i>
+                                            Address
+                                        </div>
+                        
+                                        <div class="eyra-info-value">
+                                            <%= user_data.address || 'No address available' %>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="col-12">
+                                    <div class="eyra-large-card">
+                                        <div class="eyra-info-label">
+                                            <i class="bi bi-heart-pulse-fill"></i>
+                                            Disease History
+                                        </div>
+                        
+                                        <div class="eyra-info-value">
+                                            <%= user_data.dis_history || 'No disease history available' %>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<%- include('../Footer/Dashboard_Footer.ejs') %>
+<%- include('../CDN/javascript.ejs') %>
+
+</body>
+
+</html>

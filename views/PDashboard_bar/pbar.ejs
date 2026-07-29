@@ -1,0 +1,140 @@
+<div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+    <div class="container-fluid">
+
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1 class="dashboard-heading fw-bold">Patient Dashboard</h1>
+            <a href="/patient_notifications" class="eyra-bell-wrapper">
+
+                <i class="bi bi-bell-fill eyra-bell-icon"></i>
+
+                <% if(unread_count> 0){ %>
+
+                    <span class="eyra-bell-badge">
+
+                        <%= unread_count> 99 ? '99+' : unread_count %>
+
+                    </span>
+
+                    <% } %>
+
+            </a>
+
+        </div>
+
+
+        <div class="row g-4 mb-5">
+
+            <div class="col-md-3">
+                <div class="eyra-dash-stat-card  bg-primary">
+                    <div class="eyra-card-icon">
+                        <i class="bi bi-envelope-paper-fill"></i>
+                    </div>
+                    <h3>
+                        <%= total_Enquiry %>
+                    </h3>
+                    <p>Total Enquiries</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="eyra-dash-stat-card bg-success">
+                    <div class="eyra-card-icon">
+                        <i class="bi bi-journal-medical"></i>
+                    </div>
+                    <h3>
+                        <%=total_Appoint%>
+                    </h3>
+                    <p>Appointments</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="eyra-dash-stat-card bg-info">
+                    <div class="eyra-card-icon">
+                        <i class="bi bi-heart-pulse-fill"></i>
+                    </div>
+                    <h3>
+                        <%= total_Prescription %>
+                    </h3>
+                    <p>Medical Records</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="eyra-dash-stat-card bg-warning">
+                    <div class="eyra-card-icon">
+                        <i class="bi bi-calendar-event-fill"></i>
+                    </div>
+                    <h3 id="currentDate"></h3>
+                    <h3></h3>
+                    <p>Date</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row g-4 mb-5">
+
+            <div class="col-lg-8">
+                <div class="eyra-chart-box">
+                    <h4 class="mb-3"><i class="bi bi-bar-chart-line-fill me-2"></i>Appointments Overview</h4>
+                    <canvas id="appointmentChart"></canvas>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="eyra-chart-box">
+                    <h4 class="mb-5"><i class="bi bi-pie-chart-fill me-2"></i>Health Records</h4>
+                    <canvas id="healthChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="eyra-notification-box">
+            <h5 class="mb-3">
+                <i class="bi bi-megaphone-fill me-2"></i>
+                Hospital Notice Board
+            </h5>
+            <ul class="eyra-notification-list">
+                <!-- <li><i class="bi bi-circle-fill me-2"></i> Free Eye Checkup Camp – 26 Dec 2025</li>
+                            <li><i class="bi bi-circle-fill me-2"></i> Appointment Reminder Available</li>
+                            <li><i class="bi bi-circle-fill me-2"></i> New Prescription Added</li>
+                            <li><i class="bi bi-circle-fill me-2"></i> Medical Report Uploaded</li> -->
+
+                <% for(var i=0;i<data.length;i++) { %>
+
+                    <li class="mb-3">
+
+                        <div class="fw-bold text-primary">
+
+                            <%=data[i].title%>
+
+                        </div>
+
+                        <small class="text-muted">
+
+                            <%=data[i].message%>
+
+                        </small>
+
+                    </li>
+
+                    <% } %>
+
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const today = new Date();
+    const formatted = today.getDate() + "-" + (today.getMonth() + 1 + "-" + today.getFullYear());
+    // console.log("current date is"+formatted);
+    document.getElementById("currentDate").innerText = formatted;
+</script>

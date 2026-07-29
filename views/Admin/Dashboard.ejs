@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <%- include('../CDN/bootstrap.ejs') %>
+</head>
+
+<body>
+
+
+
+    <div class="d-flex">
+
+        <%- include('../Header/Admin_Header.ejs') %>
+
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+                <div class="container-fluid">
+
+
+                    <h1 class="admin-dashboard-heading fw-bold mb-4">Admin Dashboard</h1>
+
+
+                    <div class="row g-4 mb-5">
+
+                        <div class="col-md-3">
+                            <div class="eyra-admin-stat-card  bg-primary">
+                                <div class="eyra-card-icon">
+                                    <i class="bi bi-people-fill"></i>
+                                </div>                     
+                                <h3>
+                                    <%= total_patients %>
+                                </h3>
+                                <p>Total Patients</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="eyra-admin-stat-card bg-success">
+                                <div class="eyra-card-icon">
+                                    <i class="bi bi-journal-medical"></i>
+                                </div>
+                                <h3>
+                                    <%= total_appointments %>
+                                </h3>
+                                <p>Total Appointments</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="eyra-admin-stat-card bg-info">
+                                <div class="eyra-card-icon">
+                                    <i class="bi bi-person-vcard-fill"></i>
+                                </div>
+                                <h3>
+                                    <%= total_doctors %>
+                                </h3>
+                                <p>Total Doctors</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="eyra-admin-stat-card bg-warning">
+                                <div class="eyra-card-icon">
+                                    <i class="bi bi-envelope-paper-fill"></i>
+                                </div>
+                                <h3>
+                                    <%= total_enquiries %>
+                                </h3>
+                                <p>Total Enquiries</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+
+                        <div class="row g-4 mb-5">
+                            <div class="col-lg-8">          
+
+                                    <div class="eyra-chart-box">
+
+                                        <h4 class="mb-3"><i class="bi bi-bar-chart-line-fill me-2"></i>Appointment Trends</h4>
+                                          
+                                        <canvas id="appointmentChart"></canvas>
+
+                                    </div>
+
+                            </div>
+
+                            <div class="col-lg-4">                        
+
+                                    <div class="eyra-chart-box">
+
+                                        <h4 class="mb-5"><i class="bi bi-pie-chart-fill me-2"></i> Appointment Status Overview</h4>
+                                                                                
+                                        <canvas id="statusChart"></canvas>
+
+                                    </div>
+
+                            </div>
+                        </div>
+
+                    
+<div class="row mt-5 align-items-stretch">
+
+    <!-- Recent Appointments -->
+    <div class="col-lg-4 mb-4 d-flex">
+
+        <div class="eyra-recent-card w-100">
+
+            <div class="eyra-recent-header">
+
+                <h5 class="eyra-recent-section-title">
+
+                    <i class="bi bi-calendar2-check-fill"></i>
+
+                    Recent Appointments
+
+                </h5>
+
+            </div>
+
+            <div class="eyra-recent-body">
+
+                <% recent_appointments.forEach((data)=>{ %>
+
+                    <div class="eyra-activity-item">
+
+                        <div class="eyra-activity-title">
+
+                            <%= data.name %>
+
+                        </div>
+
+                        <div class="eyra-activity-subtitle">
+
+                            <%= data.status %>
+
+                        </div>
+
+                    </div>
+
+                <% }) %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Recent Users -->
+    <div class="col-lg-4 mb-4 d-flex">
+
+        <div class="eyra-recent-card w-100">
+
+            <div class="eyra-recent-header">
+
+                <h5 class="eyra-recent-section-title">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    Recent Users
+
+                </h5>
+
+            </div>
+
+            <div class="eyra-recent-body">
+
+                <% recent_users.forEach((data)=>{ %>
+
+                    <div class="eyra-activity-item">
+
+                        <div class="d-flex align-items-center">
+
+                            <div class="eyra-mini-icon">
+
+                                <i class="bi bi-person-fill"></i>
+
+                            </div>
+
+                            <div>
+
+                                <div class="eyra-activity-title">
+
+                                    <%= data.name %>
+
+                                </div>
+
+                                <div class="eyra-activity-subtitle">
+
+                                    <%= data.email %>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                <% }) %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Recent Enquiries -->
+    <div class="col-lg-4 mb-4 d-flex">
+
+        <div class="eyra-recent-card w-100">
+
+            <div class="eyra-recent-header">
+
+                <h5 class="eyra-recent-section-title">
+
+                    <i class="bi bi-chat-left-text-fill"></i>
+
+                    Recent Enquiries
+
+                </h5>
+
+            </div>
+
+            <div class="eyra-recent-body">
+
+                <% recent_enquiries.forEach((data)=>{ %>
+
+                    <div class="eyra-activity-item">
+
+                        <div class="eyra-activity-title">
+
+                            <%= data.subject %>
+
+                        </div>
+
+                        <div class="eyra-activity-subtitle">
+
+                            <%= data.name %>
+
+                        </div>
+
+                    </div>
+
+                <% }) %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+      
+
+                </div>
+            </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+        const chartdata = <%- JSON.stringify(appointmentchart) %>
+
+    const labels = chartdata.map((data) => {
+            return data.preferred_date
+        })
+
+        const values = chartdata.map((data) => {
+            return data.totalappointments
+        })
+
+        const ctx = document.getElementById('appointmentChart')
+
+        new Chart(ctx,
+            {
+                type: 'line',
+
+                data:
+                {
+                    labels: labels,
+
+                    datasets:
+                        [
+                            {
+                                label: 'Appointments',
+
+                                data: values,
+
+                                borderWidth: 3,
+
+                                tension: 0.4,
+
+                                fill: true
+                            }
+                        ]
+                },
+
+                options:
+                {
+                    responsive: true,
+
+                    plugins:
+                    {
+                        legend:
+                        {
+                            display: true
+                        }
+                    }
+                }
+            })
+
+            const statusdata = <%- JSON.stringify(appointment_status_chart) %>
+
+const statuslabels = statusdata.map((data)=>{
+    return data.status
+})
+
+const statusvalues = statusdata.map((data)=>{
+    return data.total
+})
+
+const statusColorMap = {
+    Pending: "#ffc107",     // Yellow
+    Approved: "#0d6efd",    // Blue
+    Completed: "#198754",   // Green
+    Rejected: "#dc3545",    // Red
+    Visited: "#969494"      // Grey
+};
+
+const statusctx = document.getElementById('statusChart')
+
+new Chart(statusctx,
+{
+    type:'doughnut',
+
+    data:
+    {
+        labels:statuslabels,
+
+        datasets:
+        [
+            {
+                data:statusvalues,
+
+                   backgroundColor: statuslabels.map(status => {
+
+                        switch (status.toLowerCase()) {
+
+                            case 'approved':
+                                return '#0d6efd';
+
+                            case 'completed':
+                                return '#198754';
+
+                            case 'pending':
+                                return '#ffc107';
+
+                            case 'rejected':
+                                return '#dc3545';
+
+                            case 'visited':
+                                return '#969494';
+
+                            default:
+                                return '#6c757d';
+                        }
+
+                    })
+                }
+            ]
+    },
+
+    options:
+{
+    responsive:true,
+
+    cutout:'65%',
+
+    plugins:
+    {
+        legend:
+        {
+            position:'bottom',
+
+            labels:
+            {
+                padding:20,
+                usePointStyle:true,
+                pointStyle:'circle',
+                font:
+                {
+                    size:13,
+                    weight:'600'
+                }
+            }
+        }
+    }
+}
+})
+
+    </script>
+
+    
+
+    <%- include('../chat/chat.ejs') %>
+        <%- include('../Footer/Dashboard_Footer.ejs') %>
+            <%- include('../CDN/javascript.ejs') %>
+</body>
+
+</html>

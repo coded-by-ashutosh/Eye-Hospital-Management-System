@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Users</title>
+
+    <%- include('../CDN/bootstrap.ejs') %>
+        <%- include('../CDN/bootstrap.ejs') %>
+            <%- include('../CDN/datatable_css.ejs') %>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <%- include('../Header/Admin_Header.ejs') %>
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+                <div class="container-fluid">
+
+                    <h1 class="view-users-heading fw-bold mb-1">
+                            View User Accounts
+                        </h1>
+                        <p class="text-muted mb-4">
+                            View, manage and monitor all registered patient accounts.
+                        </p>
+
+                     <div class="card eyra-table-card mt-5">
+
+                        <div class="eyra-table-card-body">
+
+                            <div class="table-responsive">
+
+                                <table class="table table-hover eyra-view-users-table align-middle" id="users_list">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>Patient</th>
+                                            <th>Email</th>
+                                            <th>Mobile</th>
+                                            <th>Gender</th>
+                                            <th>Status</th>
+                                            <th>Registered</th>
+                                            <th>Action</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        <% user_record.forEach((data)=> { %>
+
+                                            <tr>
+
+                                                <td>
+
+                                                    <div class="d-flex align-items-center gap-3">
+
+                                                        <img src="/public/Patients_Photo/<%= data.photo || 'default.png' %>"
+                                                            class="user-profile">
+
+                                                        <div>
+
+                                                            <h6 class="mb-0 fw-bold">
+
+                                                                <%= data.name %>
+
+                                                            </h6>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </td>
+
+                                                <td>
+                                                    <%= data.email %>
+                                                </td>
+
+                                                <td>
+                                                    <%= data.mobile %>
+                                                </td>
+
+                                                <td>
+                                                    <%= data.gender %>
+                                                </td>
+
+                                                <td>
+
+                                                    <% if(data.profile_complete=="yes" ) { %>
+
+                                                        <span class="eyra-status-completed">
+
+                                                            Complete
+
+                                                        </span>
+
+                                                        <% } else { %>
+
+                                                            <span class="eyra-status-cancelled">
+
+                                                                Incomplete
+
+                                                            </span>
+
+                                                            <% } %>
+
+                                                </td>
+
+                                                <td>
+                                                    <span class="badge date bg-primary">
+                                                        <%= new Date(data.reg_date).toLocaleString( 'en-IN' , {day:'2-digit',month:'short',year:'numeric',
+                                                            hour:'2-digit',minute:'2-digit'}) %>
+                                                    </span>
+                                                </td>
+
+                                                <td>
+                                                    <div class="eyra-action-buttons">
+                                                
+                                                        <a href="/view_user/<%= data.id %>" class="eyra-btn-view-user">
+                                                            <i class="bi bi-eye-fill me-1"></i>
+                                                            View
+                                                        </a>
+                                                
+                                                        <a href="/delete_user/<%= data.id %>" class="eyra-btn-delete-user"
+                                                            onclick="return confirm('Are you sure you want to delete this user account?')">
+                                                            <i class="bi bi-trash-fill me-1"></i>
+                                                            Delete
+                                                        </a>
+                                                
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+
+                                            <% }) %>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+    </div>
+
+    <%- include('../CDN/datatable_js.ejs') %>
+        <%- include('../Footer/Dashboard_Footer.ejs') %>
+            <%- include('../CDN/javascript.ejs') %>
+
+                <script>
+                    $('#users_list').DataTable();
+                </script>
+
+</body>
+
+</html>

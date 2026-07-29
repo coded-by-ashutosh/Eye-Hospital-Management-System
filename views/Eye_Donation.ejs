@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('CDN/bootstrap.ejs') %>
+</head>
+
+<body>
+    <%- include('Header/Home_Header.ejs') %>
+
+        <!-- HERO -->
+
+        <section class="eyra-contact-intro mt-5">
+
+            <div class="container">
+
+                <div class="row justify-content-center">
+
+                    <div class="col-lg-9 text-center">
+
+                        <h1 class="eyra-contact-title mb-3">
+
+                            Gift the Light of Vision
+
+                        </h1>
+
+                        <p class="eyra-contact-subtitle mb-0">
+
+                            Your pledge today can restore vision and bring hope to someone tomorrow.
+                            Join EYRA's mission to create a brighter future through eye donation.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FORM + INFO -->
+
+        <section class="eyra-contact-form-section mt-5 mb-5">
+
+            <div class="container">
+
+                <div class="row align-items-center">
+
+                    <!-- LEFT SIDE -->
+
+
+                    <div class="col-lg-5 order-1">
+
+                        <div class="eyra-donation-visual">
+
+                            <div class="eyra-circle-wrapper">
+
+                                <img src="/public/images/eye-donation.jpg" class="eyra-doctor-image" alt="Doctor">
+
+                            </div>
+
+                            <div class="eyra-impact-wrapper">
+
+                                <div class="eyra-impact-card">
+
+                                    <i class="bi bi-heart-pulse-fill impact-icon"></i>
+
+                                    <div class="impact-text">
+
+                                        Bring Hope
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="eyra-impact-card">
+
+                                    <i class="bi bi-eye-fill impact-icon"></i>
+
+                                    <div class="impact-text">
+
+                                        Gift Vision
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="eyra-impact-card">
+
+                                    <i class="bi bi-shield-check impact-icon"></i>
+
+                                    <div class="impact-text">
+
+                                        Safe Process
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <!-- RIGHT SIDE -->
+
+                    <div class="col-lg-7 order-2">
+
+                        <div class="eyra-contact-card mt-5">
+
+                            <div class="text-center eyra-contact-card-header">
+
+                                <h3>
+
+                                    Eye Donation Registration
+
+                                </h3>
+
+                                <p class="eyra-contact-card-subtext">
+
+                                    Register your eye donation pledge
+
+                                </p>
+
+                            </div>
+
+                            <div class="eyra-contact-card-body mb-5">
+
+                                <form action="/eye_donation" method="POST" class="eyra-contact-form">
+
+                                    <input type="text" name="name" placeholder="Full Name" class="form-control mb-3"
+                                        required>
+
+                                    <input type="email" name="email" placeholder="Email" class="form-control mb-3"
+                                        required>
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+
+                                            <input type="number" name="age" placeholder="Age" class="form-control mb-3"
+                                                required>
+
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                            <input type="text" name="blood_group" placeholder="Blood Group"
+                                                class="form-control mb-3" required>
+
+                                        </div>
+
+                                    </div>
+
+                                    <input type="text" name="mobile" placeholder="Mobile Number"
+                                        class="form-control mb-3" required>
+
+                                    <input type="text" name="emergency_contact" placeholder="Emergency Contact"
+                                        class="form-control mb-3" required>
+
+                                    <textarea name="address" rows="3" placeholder="Address" class="form-control mb-3"
+                                        required></textarea>
+
+                                    <div class="form-check mb-4">
+
+                                        <input type="checkbox" class="form-check-input" required>
+
+                                        <label>
+
+                                            I voluntarily pledge to donate my eyes.
+
+                                        </label>
+
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary w-100">
+
+                                        Register Pledge
+
+                                    </button>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- HOW EYE DONATION WORKS -->
+
+        <section class="eyra-eye-process py-5">
+
+            <div class="container">
+
+                <div class="eyra-eye-process-strip text-center mb-5">
+                    <h2>How Eye Donation Works</h2>
+                    <p>A small pledge today can create lifelong impact.</p>
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <div class="eyra-process-card p-4 h-100">
+
+                            <i class="bi bi-pencil-square"></i>
+
+                            <h5>Register</h5>
+
+                            <p>Submit your donation pledge.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <div class="eyra-process-card p-4 h-100">
+
+                            <i class="bi bi-shield-check"></i>
+
+                            <h5>Verification</h5>
+
+                            <p>Secure approval and record process.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <div class="eyra-process-card p-4 h-100">
+
+                            <i class="bi bi-database-check"></i>
+
+                            <h5>Record</h5>
+
+                            <p>Safe donor information storage.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <div class="eyra-process-card p-4 h-100">
+
+                            <i class="bi bi-eye-fill"></i>
+
+                            <h5>Restore Vision</h5>
+
+                            <p>Help someone see the world again.</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="eyra-vision-promise my-5">
+
+            <div class="container">
+
+                <div class="text-center">
+
+                    <h2>
+
+                        Our Commitment to Vision Care
+
+                    </h2>
+
+                    <p>
+
+                        Every pledge is handled with care, dignity, and medical responsibility.
+
+                    </p>
+
+                </div>
+
+                <div class="eyra-promise-list mt-5">
+
+                    <div>
+
+                        <span>✓</span>
+
+                        Every eye donation pledge is handled through an ethical and medically supervised process to
+                        ensure safety.
+
+                    </div>
+
+                    <div>
+
+                        <span>✓</span>
+
+                        Your personal information remains protected with secure donor records and complete privacy
+                        safeguards.
+
+                    </div>
+
+                    <div>
+
+                        <span>✓</span>
+
+                        Our team provides professional guidance and support throughout the registration process.
+
+                    </div>
+
+                    <div>
+
+                        <span>✓</span>
+
+                        Every pledge contributes toward creating hope and helping restore vision for people in need.
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FAQ -->
+
+        <!-- <section class="eyra-eye-faq py-5">
+
+            <div class="container">
+
+                <div class="text-center mb-5">
+
+                    <h2 class="eyra-process-title">
+
+                        Frequently Asked Questions
+
+                    </h2>
+
+                </div>
+
+                <div class="accordion" id="eyeFAQ">
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header">
+
+                            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">
+
+                                Can anyone donate eyes?
+
+                            </button>
+
+                        </h2>
+
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#eyeFAQ">
+
+                            <div class="accordion-body">
+
+                                Most people can pledge eye donation.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header">
+
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+
+                                Is eye donation safe?
+
+                            </button>
+
+                        </h2>
+
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#eyeFAQ">
+
+                            <div class="accordion-body">
+
+                                Donation follows medically approved procedures.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header">
+
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+
+                                Will appearance change?
+
+                            </button>
+
+                        </h2>
+
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#eyeFAQ">
+
+                            <div class="accordion-body">
+
+                                No. The donation process respects appearance.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section> -->
+
+        <!-- ALERT -->
+
+        <% if(locals.msg){ %>
+
+            <script>
+
+                alert("<%= msg %>")
+
+            </script>
+
+            <% } %>
+
+
+
+                <%- include('Appointment_Form/Form.ejs') %>
+                    <%- include('chat/chat.ejs') %>
+                        <%- include('Footer/Home_Footer.ejs') %>
+                            <%- include('CDN/javascript.ejs') %>
+</body>
+
+</html>

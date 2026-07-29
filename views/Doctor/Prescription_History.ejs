@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Prescription History
+    </title>
+
+    <%- include('../CDN/bootstrap.ejs') %>
+        <%- include('../CDN/datatable_css.ejs') %>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <%- include('../Header/Doctor_Header.ejs') %>
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+                <div class="container-fluid">
+
+                    <h1 class="appointments-heading fw-bold mb-1">
+                    Prescription History
+                </h1>
+                <p class="text-muted mb-0">
+                    View all prescriptions issued to patients, review treatment details, and access previous consultation records.
+                </p>
+
+
+                    <div class="card eyra-table-card mt-5">
+
+                        <div class="eyra-table-card-body">
+
+                            <div class="table-responsive">
+
+                            <table class="table table-hover doctor-appointments-table align-middle" id="prescriptionTable">
+
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>Patient</th>
+
+                                            <th>Appointment Date</th>
+
+                                            <th>Diagnosis</th>
+
+                                            <th>Next Visit</th>
+
+                                            <th>Status</th>
+
+                                            <th>Action</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        <% prescription_record.forEach((data)=> { %>
+
+                                            <tr>
+
+                                                <td>
+
+                                                    <%= data.name %>
+
+                                                </td>
+
+                                                        <td>
+                                                            <span class="badge date bg-primary">
+                                                                <%= data.preferred_date %>
+                                                            </span>
+                                                        </td>
+
+
+                                                <td>
+
+                                                    <%= data.diagnosis %>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <span class="badge date bg-primary">
+                                                        <%= new Date(data.next_visit_date).toLocaleString('en-CA', {year:'numeric', month:'2-digit', day:'2-digit'
+                                                            }).replace(',', ' |' ) %>
+                                                        </span>
+
+                                                </td>
+
+                                                <td>
+
+                                                                <% if(data.status=="Completed" ) { %>
+
+                                                                    <span class="eyra-status-completed">
+
+                                                                        Completed
+
+                                                                    </span>
+
+                                                                    <% } else if(data.status=="Approved" ) { %>
+
+                                                                        <span class="eyra-status-approved">
+
+                                                                            Approved
+
+                                                                        </span>
+
+                                                                        <% } else if(data.status=="Visited" ) { %>
+
+                                                                            <span class="eyra-status-visited">
+
+                                                                                Visited
+
+                                                                            </span>
+
+                                                                            <% } else { %>
+
+                                                                                <span
+                                                                                    class="eyra-status-pending">
+
+                                                                                    Pending
+
+                                                                                </span>
+
+                                                                                <% } %>
+
+                                                            </td>
+
+                                                <td>
+
+                                                    <a href="/doctor/view_prescription/<%= data.id %>"
+                                                        class="eyra-btn-view-user-sm">
+                                                    <i class="bi bi-eye-fill me-1"></i>
+                                                        View
+
+                                                    </a>
+
+                                                </td>
+
+                                            </tr>
+
+                                            <% }) %>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+    </div>
+
+    <%- include('../CDN/datatable_js.ejs') %>
+    <%- include('../CDN/datatable_js.ejs') %>
+        <%- include('../CDN/javascript.ejs') %>
+
+            <script>
+
+                $('#prescriptionTable').DataTable();
+
+            </script>
+
+</body>
+
+</html>

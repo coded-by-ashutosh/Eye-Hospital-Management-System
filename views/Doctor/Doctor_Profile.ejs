@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('../CDN/bootstrap.ejs') %>
+</head>
+
+<body>
+    <div class="d-flex">
+<%- include('../Header/Doctor_Header.ejs') %>
+
+ <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+
+ <div class="container-fluid mb-4">
+  <h1 class="appointments-heading fw-bold mb-2">My Profile</h1>
+  <p class="text-muted mb-5">
+    View your personal details and account information
+  </p>
+</div>
+    
+  <div class="profile-card">
+
+    <!-- Header -->
+    <div class="profile-header">
+      <img src="/public/Doctors_Photo/<%= doctor_data.doctor_image%>" class="profile-avatar">
+      <div class="profile-basic">
+        <h4><%= doctor_data.doctor_name %></h4>
+
+<span class="profile-badge"><i class="bi bi-stars me-2"></i><%= doctor_data.speciality %> </span>
+</span>
+
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="profile-body">
+      <div class="profile-item">
+        <span><i class="bi bi-mortarboard-fill me-2"></i>Qualification</span>
+        <p><%= doctor_data.qualification %></p>
+      </div>
+
+      <div class="profile-item">
+        <span><i class="bi bi-award-fill me-2"></i>Experience</span>
+        <p><%= doctor_data.experience %></p>
+      </div>
+
+      <div class="profile-item">
+        <span><i class="bi bi-envelope-fill me-2"></i>Email</span>
+        <p><%= doctor_data.email %></p>
+      </div>
+
+      <div class="profile-item">
+        <span><i class="bi bi-calendar-check-fill me-2"></i>Registration Date</span>
+        <p>
+          <%= new Date(doctor_data.created_at).toLocaleString( 'en-IN' , 
+            {day:'2-digit',month:'short',year:'numeric',
+            hour:'2-digit',minute:'2-digit'}) %>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="profile-footer">
+
+    <i class="bi bi-info-circle"></i>
+
+    Your professional information is managed by the hospital administration. Contact the admin department for profile updates.
+
+</div>
+
+  </div>
+</div>
+
+
+
+
+
+</div>
+</div>
+
+<%- include('../CDN/javascript.ejs') %>
+
+</body>
+</html>

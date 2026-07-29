@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('CDN/bootstrap.ejs') %>
+</head>
+
+<body>
+  <%- include('Header/Home_Header.ejs') %>
+    <%- include('Gallery/gallery.ejs') %>
+
+      <h2 class="scroll_msg py-2">
+        <marquee class="eyra-marquee" scrollamount="15" onmouseover="this.stop()" onmouseout="this.start()">
+          Comprehensive Eye Care
+          • Advanced Cataract Surgery
+          • LASIK Treatments
+          • Trusted Specialists
+          • Compassionate Care at EYRA Eye Care Center
+        </marquee>
+      </h2>
+
+      <!-- ABOUT SECTION -->
+      <section class="eyra-intro-section pt-4 pb-5">
+        <div class="container">
+          <div class="row align-items-center g-4">
+
+
+            <div class="col-md-6">
+              <h2 class="eyra-intro-title">Because Your Vision Matters</h2>
+              <p class="eyra-intro-text">
+                At EYRA, we believe that clear vision is essential for a better quality
+                of life. Our eye care center is built on a foundation of trust,
+                compassion, and medical excellence.
+              </p>
+              <p class="eyra-intro-text">
+                With experienced specialists, modern technology, and a patient-first
+                approach, we are committed to delivering safe, accurate, and comfortable
+                eye treatments for every individual.
+              </p>
+              <a href="/about" class="btn btn-primary mt-4">Explore more</a>
+            </div>
+
+            <div class="col-md-6 text-center">
+              <img src="../public/images/intro.jpg" class="eyra-intro-img" alt="EYRA Eye Care">
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- WHY CHOOSE US -->
+      <section class="eyra-why-choose-us py-5">
+        <div class="container">
+
+          <div class="text-center mb-5">
+            <h2 class="eyra-section-title">Why Choose EYRA</h2>
+            <p class="eyra-section-subtitle">
+              Excellence in eye care through trust, technology, and compassion
+            </p>
+          </div>
+
+          <div class="row g-4">
+
+
+            <div class="col-md-4">
+              <div class="eyra-card h-100">
+                <img src="../public/images/card1.jpg" class="eyra-card-img" alt="Expert Doctors">
+                <div class="eyra-card-body text-center">
+                  <h5 class="eyra-card-title">Expert Eye Specialists</h5>
+                  <p class="eyra-card-text">
+                    Skilled ophthalmologists providing accurate diagnosis and
+                    personalized treatments.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-4">
+              <div class="eyra-card h-100">
+                <img src="../public/images/card2.jpg" class="eyra-card-img" alt="Advanced Facilities">
+                <div class="eyra-card-body text-center">
+                  <h5 class="eyra-card-title">Advanced Facilities</h5>
+                  <p class="eyra-card-text">
+                    Modern equipment and hygienic infrastructure for safe and effective
+                    eye care.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-4">
+              <div class="eyra-card h-100">
+                <img src="../public/images/card3.jpg" class="eyra-card-img" alt="Patient Trust">
+                <div class="eyra-card-body text-center">
+                  <h5 class="eyra-card-title">Patient-First Care</h5>
+                  <p class="eyra-card-text">
+                    Compassionate approach focused on comfort, trust, and long-term
+                    vision health.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="eyra-faq-section py-5">
+        <div class="container">
+
+
+
+          <div class="eyra-faq-strip text-center mb-5">
+            <h2 class="mb-1">Clear Answers, Caring Support</h2>
+            <p class="mb-0">Because informed patients feel more confident</p>
+          </div>
+
+
+          <div class="accordion eyra-accordion" id="eyraAccordion">
+
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  <span><img src="../public/icons/eye.png" alt="eye-icon" height="25" width="25">
+                    What eye treatments does EYRA provide?</span>
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#eyraAccordion">
+                <div class="accordion-body">
+                  EYRA provides complete eye care including eye checkups, cataract
+                  surgery, retina care, pediatric ophthalmology, and advanced
+                  diagnostics.
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+                  <span><img src="../public/icons/calendar.png" alt="calendar-icon" height="25" width="25">
+                    How can I book an appointment?</span>
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#eyraAccordion">
+                <div class="accordion-body">
+                  Appointments can be booked online, via our helpline, or by visiting
+                  the hospital reception during working hours.
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+                  <span><img src="../public/icons/first-aid-kit.png" alt="calendar-icon" height="25" width="25">
+                    Is emergency eye care available?</span>
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#eyraAccordion">
+                <div class="accordion-body">
+                  Yes, EYRA offers emergency eye care services. Please contact our
+                  emergency helpline immediately in urgent situations.
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq4">
+                  <span><img src="../public/icons/shield.png" alt="calendar-icon" height="25" width="25">
+                    What safety measures are followed during treatments and surgeries?</span>
+                </button>
+              </h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#eyraAccordion">
+                <div class="accordion-body">
+                  We strictly follow sterilization protocols, advanced hygiene standards, and patient safety guidelines
+                  to ensure safe and reliable treatment for every patient.
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq5">
+                  <span><img src="../public/icons/support.png" alt="calendar-icon" height="25" width="25">
+                    How does eye donation help others?</span>
+                </button>
+              </h2>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#eyraAccordion">
+                <div class="accordion-body">
+                  Eye donation restores vision and transforms lives. Our team guides
+                  donors through the process with care and respect.
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+
+     <!-- CTA SECTION -->
+<section class="eyra-final-cta py-5">
+  <div class="container">
+    <div class="row align-items-center">
+
+     
+      <div class="col-lg-8 text-center text-lg-start mb-4 mb-lg-0">
+        <h2 class="eyra-cta-title mb-2">
+          Your Vision Deserves Expert Care
+        </h2>
+        <p class="eyra-cta-text mb-0">
+          Schedule an appointment with our experienced specialists or reach out
+          to us for any assistance. We’re here to help you see better.
+        </p>
+      </div>
+
+     
+      <div class="col-lg-4 text-center text-lg-end">
+        <div class="eyra-cta-buttons d-flex flex-column flex-lg-row gap-3 justify-content-lg-end">
+          <a href="#" class="btn btn-primary btn-lg me-2 mb-2" data-bs-toggle="modal"
+  data-bs-target="#bookAppointmentModal">
+            <i class="bi bi-calendar-check me-2"></i> Book Appointment
+          </a>
+
+          <a href="tel:+911234567890" class="btn btn-outline-primary btn-lg mb-2">
+            <i class="bi bi-telephone me-2"></i> Call Now
+          </a>
+        </div>
+
+        <p class="eyra-cta-note mb-0">
+          Emergency cases? Call us directly for immediate assistance.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+      <%- include('Appointment_Form/Form.ejs') %>
+      <%- include('chat/chat.ejs') %>
+      <%- include('Footer/Home_Footer.ejs') %>
+      <%- include('CDN/javascript.ejs') %>
+</body>
+
+</html>

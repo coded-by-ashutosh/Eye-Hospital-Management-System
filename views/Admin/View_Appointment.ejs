@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Appointment Details</title>
+
+    <%- include('../CDN/bootstrap.ejs') %>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <%- include('../Header/Admin_Header.ejs') %>
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+                <div class="container-fluid">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+
+        <h1 class="manage-appointments-heading fw-bold mb-1">
+            Appointment Details
+        </h1>
+
+        <p class="text-muted mb-0">
+            View patient information, appointment schedule, assigned doctor and status updates.
+        </p>
+
+    </div>
+
+    <a href="/manage_appointments" class="eyra-btn-back">
+        <i class="bi bi-arrow-left me-2"></i>
+        Back
+    </a>
+
+</div>
+
+
+
+                   
+
+                            <div class="eyra-appointment-card mt-5">
+
+<!-- Patient Summary -->
+
+<div class="eyra-profile-header">
+
+    <div class="d-flex align-items-center">
+
+        <!-- <div class="eyra-profile-icon">
+            <i class="bi bi-person-fill"></i>
+        </div> -->
+
+        <div class="profile-basic">
+        
+            <h4 class="mb-1 fw-bold">
+                <%= appoint_data.name %>
+            </h4>
+        
+            <p class="text-muted mb-0">
+                Appointment ID :
+                <span class="fw-semibold">
+                    #<%= appoint_data.id %>
+                </span>
+            </p>
+
+            <div class="mt-2">
+
+    <% if(appoint_data.status=="Pending"){ %>
+
+        <span class="eyra-status-pending">
+            Pending
+        </span>
+
+    <% } else if(appoint_data.status=="Approved"){ %>
+
+        <span class="eyra-status-approved">
+            Approved
+        </span>
+
+    <% } else if(appoint_data.status=="Completed"){ %>
+
+        <span class="eyra-status-completed">
+            Completed
+        </span>
+    
+    <% } else if(appoint_data.status=="Visited"){ %>
+
+        <span class="eyra-status-visited">
+            Visited
+        </span>
+    
+    <% } else if(appoint_data.status=="Rejected"){ %>
+
+    <span class="eyra-status-cancelled">
+        Rejected
+    </span>
+
+    <% } %>
+
+</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Information Grid -->
+
+<div class="row g-4 mt-2">
+
+    <div class="col-md-6">
+        <div class="eyra-info-card">
+            <div class="eyra-info-label">
+                                            <i class="bi bi-envelope-fill"></i>
+                                            Email
+                                        </div>
+            <h6><%= appoint_data.email %></h6>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="eyra-info-card">
+            <div class="eyra-info-label">
+                <i class="bi bi-phone-fill"></i>Mobile Number
+             </div>
+            <h6><%= appoint_data.phone %></h6>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="eyra-info-card">
+            <div class="eyra-info-label">
+                                            <i class="bi bi-calendar-check-fill"></i>
+                                            Appointment Date
+                                        </div>
+            <h6><%= appoint_data.preferred_date %></h6>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="eyra-info-card">
+             <div class="eyra-info-label">
+                                            <i class="bi bi-clock-fill"></i>
+                                            Time
+                                        </div>
+            <h6><%= appoint_data.prefer_time %></h6>
+        </div>
+    </div>
+
+    <% if(
+appoint_data.status=="Approved" ||
+appoint_data.status=="Visited" ||
+appoint_data.status=="Completed"
+){ %>
+
+    <div class="col-md-6">
+        <div class="eyra-info-card">
+             <div class="eyra-info-label">
+                                            <i class="bi bi-person-badge-fill"></i>
+                                            Assigned Doctor
+                                        </div>
+            <h6><%= appoint_data.doctor_name %></h6>
+        </div>
+    </div>
+
+    <% } %>
+
+    <!-- <div class="col-md-6">
+
+        <div class="eyra-info-card">
+
+            <span>Status</span>
+
+            <div class="mt-2 d-inline-block">
+
+                <% if(appoint_data.status=="Completed"){ %>
+
+                <span class="eyra-status-completed">
+                    Completed
+                </span>
+
+                <% } else if(appoint_data.status=="Approved"){ %>
+
+                <span class="eyra-status-approved">
+                    Approved
+                </span>
+
+                <% } else if(appoint_data.status=="Pending"){ %>
+
+                <span class="eyra-status-pending">
+                    Pending
+                </span>
+
+                <% } else if(appoint_data.status=="Visited"){ %>
+
+                <span class="eyra-status-visited">
+                    Visited
+                </span>
+
+                <% } else { %>
+
+                <span class="eyra-status-cancelled">
+                    Rejected
+                </span>
+
+                <% } %>
+
+            </div>
+
+        </div>
+
+    </div> -->
+
+    <div class="col-md-6">
+
+    <div class="eyra-info-card">
+
+        <div class="eyra-info-label">
+                                            <i class="bi bi-geo-alt-fill"></i>
+                                            Address
+                                        </div>
+
+        <h6 class="mb-0 mt-2">
+            <%= appoint_data.address %>
+        </h6>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- Address -->
+
+<!-- <div class="eyra-detail-box mt-4">
+
+    <div class="eyra-detail-title">
+        <i class="bi bi-geo-alt-fill me-2"></i>
+        Address
+    </div>
+
+    <p class="mb-0">
+        <%= appoint_data.address %>
+    </p>
+
+</div> -->
+
+<!-- Pending Actions -->
+
+<% if(appoint_data.status=="Pending"){ %>
+
+<div class="eyra-action-card mt-4">
+
+    <h4 class="fw-bold mb-4">
+        <i class="bi bi-gear-fill me-2"></i>
+        Appointment Actions
+    </h4>
+
+    <form action="/assign_doctor" method="POST">
+
+        <input type="hidden"
+               name="appointment_id"
+               value="<%= appoint_data.id %>">
+
+        <div class="eyra-action-section">
+
+            <h6 class="mb-3">
+                Assign Doctor
+            </h6>
+
+            <select name="doctor_id"
+                    class="form-select"
+                    required>
+
+                <option value="">
+                    Select Doctor
+                </option>
+
+                <% doctors.forEach((doctor)=>{ %>
+
+                <option value="<%= doctor.id %>">
+
+                    <%= doctor.doctor_name %> -
+                    <%= doctor.speciality %>
+
+                </option>
+
+                <% }) %>
+
+            </select>
+
+            <button type="submit"
+                    class="eyra-btn-approve mt-3">
+
+                <i class="bi bi-person-check-fill me-2"></i>
+                Assign Doctor
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <form action="/reject_appointment"
+          method="POST"
+          class="mt-4">
+
+        <input type="hidden"
+               name="appointment_id"
+               value="<%= appoint_data.id %>">
+
+        <div class="eyra-action-section">
+
+            <h6 class="text-danger mb-3">
+                Reject Appointment
+            </h6>
+
+            <textarea
+                name="admin_response"
+                class="form-control"
+                rows="3"
+                placeholder="Reason for rejection..."
+                required></textarea>
+
+            <button type="submit"
+                    class="eyra-btn-reject mt-3">
+
+                <i class="bi bi-x-circle-fill me-2"></i>
+                Reject Appointment
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+<% } %>
+
+<!-- Status Alerts -->
+
+<% if(appoint_data.status=="Approved"){ %>
+
+<div class="alert alert-primary border-0 rounded-4 mt-4">
+
+    <div class="d-flex align-items-center">
+
+        <i class="bi bi-check-circle-fill fs-3 me-3"></i>
+
+        <div>
+
+            <h5 class="fw-bold mb-1">
+                Appointment Approved
+            </h5>
+
+            <p class="mb-0">
+                <!-- Assigned Doctor:
+                <strong><%= appoint_data.doctor_name %></strong> -->
+                A doctor has been assigned and the appointment has been successfully approved.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<% } %>
+
+<% if(appoint_data.status=="Completed"){ %>
+
+<div class="alert alert-success border-0 rounded-4 mt-4">
+
+    <div class="d-flex align-items-center">
+
+        <i class="bi bi-check2-all fs-3 me-3"></i>
+
+        <div>
+
+            <h5 class="fw-bold mb-1">
+                Appointment Completed
+            </h5>
+
+            <p class="mb-0">
+                Patient consultation has been successfully completed.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<% } %>
+
+<% if(appoint_data.status=="Rejected"){ %>
+
+<div class="alert alert-danger border-0 rounded-4 mt-4">
+
+    <div class="d-flex align-items-center">
+
+        <i class="bi bi-x-circle-fill fs-3 me-3"></i>
+
+        <div>
+
+            <h5 class="fw-bold mb-1">
+                Appointment Rejected
+            </h5>
+
+            <p class="mb-0">
+                This appointment request was rejected by admin.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<% } %>
+
+<% if(appoint_data.status=="Visited"){ %>
+
+<div class="alert alert-secondary border-0 rounded-4 mt-4 ">
+
+    <div class="d-flex align-items-center">
+
+        <i class="bi bi-person-check-fill fs-3 me-3"></i>
+
+        <div>
+
+            <h5 class="fw-bold mb-1">
+                Patient Visited
+            </h5>
+
+            <p class="mb-0">
+                The patient has visited the hospital and consultation is in progress.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<% } %>
+
+
+</div>
+
+
+                            
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+    </div>
+
+    <%- include('../Footer/Dashboard_Footer.ejs') %>
+        <%- include('../CDN/javascript.ejs') %>
+
+</body>
+
+</html>

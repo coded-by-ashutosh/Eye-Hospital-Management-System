@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Prescription
+    </title>
+
+    <%- include('CDN/bootstrap.ejs') %>
+
+        <style>
+            .prescription-sheet {
+                max-width: 800px;
+                margin: auto;
+                background: #fff;
+                padding: 18px;
+                /* border-radius: 12px; */
+                box-shadow: 0 0 15px rgba(0, 0, 0, .08);
+            }
+
+            .prescription-header {
+                background: #0B3C5D;
+                padding: 16px 22px;
+                margin: -18px -18px 18px -18px;
+                /* border-radius: 12px 12px 0 0; */
+            }
+
+            .info-box {
+                background: #F8FAFC;
+                border: 1px solid #E5E7EB;
+                padding: 10px;
+                border-radius: 10px;
+                min-height: 72px;
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 16px;
+                font-weight: 700;
+                color: #0B3C5D;
+                border-left: 4px solid #198754;
+                padding-left: 8px;
+                margin-bottom: 6px;
+                margin-top: 10px;
+            }
+
+            .content-text {
+                font-size: 14px;
+                line-height: 1.45;
+                white-space: pre-line;
+                color: #333;
+                margin-bottom: 6px;
+            }
+
+            /* .medicine-box {
+                background: #F8FAFC;
+                border-left: 4px solid #198754;
+                padding: 12px;
+                border-radius: 10px;
+            } */
+
+            .signature-box {
+                margin-top: 18px;
+                text-align: right;
+            }
+
+            .signature-line {
+                border-top: 1px solid #000;
+                width: 160px;
+                margin-left: auto;
+                padding-top: 4px;
+                font-size: 13px;
+            }
+
+            .print-btn {
+                position: fixed;
+                bottom: 25px;
+                right: 35px;
+                z-index: 9999;
+                padding: 12px 20px;
+                border-radius: 12px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+                font-weight: 600;
+            }
+
+            .footer-note {
+                font-size: 12px;
+                color: #777;
+            }
+
+            hr {
+                margin: 10px 0;
+            }
+
+            .mb-3 {
+                margin-bottom: .8rem !important;
+            }
+
+            #prescriptionPDF {
+                width: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .eyra-floating-back{
+             position: fixed;
+             top: 20px;
+             right: 30px;
+             z-index: 9999;
+            }
+        </style>
+
+</head>
+
+<body>
+
+
+    <div class="d-flex">
+        <%- include('Header/Patient_Header.ejs') %>
+
+        <a href="javascript:void(0)" onclick="history.back()" class="eyra-btn-back eyra-floating-back">
+        
+            <i class="bi bi-arrow-left me-2"></i>
+        
+            Back
+        
+        </a>
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+                <div class="prescription-sheet" id="prescriptionPDF">
+
+                    <!-- HEADER -->
+
+                    <div class="prescription-header">
+
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <div class="d-flex align-items-center gap-0">
+
+                                <img src="/public/images/logo.png" class="eyra-logo-icon me-2">
+
+                                <div class="eyra-logo-text-wrapper">
+                                    <span class="eyra-logo-text">EYRA</span>
+                                    <small class="eyra-logo-tagline">Eye Care Center</small>
+                                </div>
+
+
+                            </div>
+
+                            <div class="text-end text-white">
+
+                                <h5 class="fw-bold mb-1">
+
+                                    <%= prescription_data.doctor_name %>
+
+                                </h5>
+
+                                <p class="mb-0">
+
+                                    <%= prescription_data.speciality %>
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- PATIENT INFO -->
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <div class="info-box">
+
+                                <strong>Patient Email:</strong>
+
+                                <br>
+
+                                <%= prescription_data.patient_email %>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-3">
+
+                            <div class="info-box">
+
+                                <strong>Appointment Date:</strong>
+
+                                <br>
+
+                                <%= prescription_data.preferred_date %>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-3">
+
+                            <div class="info-box">
+
+                                <strong>Next Visit:</strong>
+
+                                <br>
+
+                                    <%= new Date(prescription_data.next_visit_date).toISOString().split('T')[0] || 'N/A' %>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- SYMPTOMS -->
+
+                    <div class="mb-3">
+
+                        <h5 class="section-title">
+
+                            Symptoms
+
+                        </h5>
+
+                        <div class="content-text">
+
+                            <%= prescription_data.symptoms %>
+
+                        </div>
+
+                    </div>
+
+                    <!-- DIAGNOSIS -->
+
+                    <div class="mb-3">
+
+                        <h5 class="section-title">
+
+                            Diagnosis
+
+                        </h5>
+
+                        <div class="content-text">
+
+                            <%= prescription_data.diagnosis %>
+
+                        </div>
+
+                    </div>
+
+                    <!-- MEDICINES -->
+
+                    <div class="mb-3">
+
+                        <h5 class="section-title">
+
+                            Medicines
+
+                        </h5>
+
+                        <div class="medicine-box">
+
+                            <div class="content-text">
+
+                                <%= prescription_data.medicines %>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ADVICE -->
+
+                    <div class="mb-3">
+
+                        <h5 class="section-title">
+
+                            Doctor Advice
+
+                        </h5>
+
+                        <div class="content-text">
+
+                            <%= prescription_data.advice %>
+
+                        </div>
+
+                    </div>
+
+                    <!-- SIGNATURE -->
+
+                    <div class="signature-box">
+
+                        <% if(prescription_data.doctor_signature){ %>
+
+                            <img src="/public/Doctors_Signature/<%= prescription_data.doctor_signature %>"
+                                alt="Doctor Signature" style="
+                                    max-height:45px;
+                                    max-width:140px;
+                                    object-fit:contain;
+                                    display:block;
+                                    margin-left:auto;
+                                    ">
+
+                            <% } %>
+
+                                <div class="signature-line">
+
+                                    <%= prescription_data.doctor_name %>
+
+                                </div>
+
+                    </div>
+
+                    <hr class="mt-4">
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div class="footer-note">
+
+                            Prescription ID:
+                            #EYRA-<%= prescription_data.id %>
+
+                        </div>
+
+                        <div class="footer-note">
+
+                            Generated:
+                            <%= new Date().toLocaleDateString() %>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+    </div>
+
+
+    <!-- PRINT BUTTON -->
+
+    <button id="downloadBtn" class="btn btn-success print-btn">
+    <i class="bi bi-download me-1"></i>
+        Download PDF
+    </button>
+
+    <script>
+
+        document
+            .getElementById('downloadBtn')
+            .addEventListener('click', () => {
+
+                const sidebar =
+                    document.querySelector('.eyra-patient-sidebar');
+
+                const layout =
+                    document.querySelector('.d-flex');
+
+                sidebar.style.display = 'none';
+
+                layout.style.display = 'block';
+
+                const element =
+                    document.getElementById('prescriptionPDF');
+
+                const options = {
+
+                    margin: 5,
+
+                    filename: 'Prescription_<%= prescription_data.id %>.pdf',
+
+                    image: {
+                        type: 'jpeg',
+                        quality: 1
+                    },
+
+                    html2canvas: {
+
+                        scale: 2,
+
+                        useCORS: true,
+
+                        scrollY: 0
+
+                    },
+
+                    jsPDF: {
+
+                        unit: 'mm',
+
+                        format: 'a4',
+
+                        orientation: 'portrait'
+
+                    },
+
+                    pagebreak: {
+
+                        mode: 'css'
+
+                    }
+
+                }
+
+                html2pdf()
+                    .set(options)
+                    .from(element)
+                    .save()
+                    .then(() => {
+
+                        sidebar.style.display = '';
+
+                        layout.style.display = '';
+
+                    });
+
+            });
+
+    </script>
+
+    <%- include('CDN/javascript.ejs') %>
+
+</body>
+
+</html>

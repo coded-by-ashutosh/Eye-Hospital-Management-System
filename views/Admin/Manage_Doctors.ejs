@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Doctors</title>
+
+    <%- include('../CDN/bootstrap.ejs') %>
+        <%- include('../CDN/datatable_css.ejs') %>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <%- include('../Header/Admin_Header.ejs') %>
+
+            <div class="flex-grow-1 bg-light px-3 py-4 eyra-main-content">
+
+                <div class="container-fluid">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <div>
+
+                            <h1 class="manage-doctors-heading fw-bold mb-1">
+                                Manage Doctors
+                            </h1>
+
+                            <p class="text-muted mb-0">
+                                Add, update, and manage doctor profiles and their hospital information.
+                            </p>
+
+                        </div>
+
+                        <a href="/add_doctor" class="eyra-btn-add-doctor">
+                            <i class="bi bi-plus-circle-fill me-2"></i>
+                            Add Doctor
+                        </a>
+
+                    </div>
+
+                    <% if(success){ %>
+
+                        <div class="alert alert-success alert-dismissible fade show">
+
+                            <%= success %>
+
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+                        </div>
+                        <% } %>
+
+                            <% if(error){ %>
+
+                                <div class="alert alert-danger alert-dismissible fade show">
+
+                                    <%= error %>
+
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+                                </div>
+
+                                <% } %>
+                                    <div class="card eyra-table-card mt-5">
+
+                                        <div class="eyra-table-card-body">
+
+                                            <div class="table-responsive">
+                                                <table class="table table-hover eyra-doctors-table align-middle"
+                                                    id="doctors_list">
+
+                                                    <thead>
+
+                                                        <tr>
+
+                                                            <th>Doctor</th>
+                                                            <!-- <th>Speciality</th> -->
+                                                            <th>Experience</th>
+                                                            <th>Status</th>
+                                                            <th>Action</th>
+
+                                                        </tr>
+
+                                                    </thead>
+
+                                                    <tbody>
+
+                                                        <% doctor_record.forEach((data)=> { %>
+
+                                                            <tr>
+
+
+                                                                <td>
+
+                                                                    <div class="d-flex align-items-center gap-3">
+
+                                                                        <img src="/public/Doctors_Photo/<%= data.doctor_image %>"
+                                                                            width="80" height="80"
+                                                                            class="rounded-circle border object-fit-cover">
+
+
+                                                                        <div>
+                                                                        
+                                                                            <h6 class="mb-0 fw-bold">
+                                                                                <%= data.doctor_name %>
+                                                                            </h6>
+                                                                        
+                                                                            <p class="text-muted">
+                                                                                <%= data.speciality %>
+                                                                            </p>
+                                                                        
+                                                                        </div>
+
+                                                                        <!-- <small class="text-muted">
+                                                                Eye Speciaist
+                                                           </small> -->
+
+                                                                    </div>
+
+
+                                            </td>
+
+                                            <!-- <td>
+                                                <%= data.speciality %>
+                                            </td> -->
+
+                                            <td>
+                                                <%= data.experience %>
+                                            </td>
+
+                                            <td>
+
+                                                <% if(data.doctor_status=="active" ){ %>
+
+                                                    <span class="eyra-status-completed">
+                                                        Active
+                                                    </span>
+
+                                                    <% } else { %>
+
+                                                        <span class="eyra-status-cancelled">
+                                                            Blocked
+                                                        </span>
+
+                                                        <% } %>
+
+                                            </td>
+
+                                            <td>
+
+                                                <div class="d-flex gap-3 flex-wrap">
+
+                                                    <a href="/edit_doctor/<%=data.id%>" class="eyra-btn-edit btn-sm">
+                                                        <i class="bi bi-pencil-square me-1"></i> Edit
+                                                     </a>
+
+                                                    <% if(data.doctor_status=="active" ){ %>
+
+                                                        <a href="/block_doctor/<%=data.id%>"
+                                                            onclick="return confirm('Block this doctor?')"
+                                                            class="eyra-btn-block">
+                                                          <i class="bi bi-slash-circle-fill me-1"></i>Block
+                                                        </a>
+
+                                                        <% } else { %>
+
+                                                            <a href="/unblock_doctor/<%=data.id%>"
+                                                                onclick="return confirm('Unblock this doctor?')"
+                                                                class="eyra-btn-unblock">
+                                                              <i class="bi bi-check-circle-fill me-1"></i>Unblock
+                                                            </a>
+
+                                                            <% } %>
+
+                                                                <a href="/delete_doctor/<%=data.id%>"
+                                                                    onclick="return confirm('Delete this doctor?')"
+                                                                    class="eyra-btn-delete-user btn-sm">
+                                                                <i class="bi bi-trash-fill me-1"></i>Delete
+                                                                </a>
+
+                                                </div>
+
+                                            </td>
+
+                                            </tr>
+                                            <% }) %>
+
+                                                </tbody>
+
+                                                </table>
+
+
+
+                                        </div>
+
+
+                                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+    </div>
+
+    </div>
+
+    <%- include('../CDN/datatable_js.ejs') %>
+        <%- include('../Footer/Dashboard_Footer.ejs') %>
+            <%- include('../CDN/javascript.ejs') %>
+
+                <script>
+                    $('#doctors_list').DataTable();
+                </script>
+
+</body>
+
+</html>

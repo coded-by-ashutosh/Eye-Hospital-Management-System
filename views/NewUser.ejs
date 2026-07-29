@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('CDN/bootstrap.ejs') %>
+</head>
+
+<body>
+
+  <%- include('Header/Home_Header.ejs') %>
+
+    <div class="container-fluid mt-5 login_div_margin_bottom">
+       <div class="row justify-content-center">
+          <div class="col-lg-5 col-md-6 col-sm-10 mt-3 position-relative">
+
+          <!-- Card -->
+          <div class="eyra-register-card">
+            <img src="../public/images/register-lady.png" class="eyra-floating-image d-none d-lg-block"
+            alt="Register">
+
+            <div class="text-center eyra-register-header">
+              <h3>Create Account</h3>
+              <p class="eyra-register-subtext">
+                Join Eyra Eye Care Center today
+              </p>
+            </div>
+
+            <div class="eyra-register-card-body">
+              <form action="/register" method="POST">
+
+                <div class="form-group mb-3">
+                  <label for="username" class="text-dark">Name</label>
+                  <input type="text" class="form-control" id="username" name="username" required>
+
+                  <label for="email" class="mt-3 text-dark">Email Address</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+
+                  <label for="password" class="mt-3 text-dark">Password</label>
+                  <input type="password" class="form-control" id="password" name="password" required>
+
+                  <label for="cpassword" class="mt-3 text-dark">Confirm Password</label>
+                  <input type="password" class="form-control" id="cpassword" name="cpassword" required>
+
+                  <div class="mt-3">
+                    <label class="d-block">Gender</label>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" id="male" name="gender" value="male" required>
+                      <label class="form-check-label">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" id="female" name="gender" value="female" required>
+                      <label class="form-check-label">Female</label>
+                    </div>
+                  </div>
+
+                  <label for="address" class="mt-3 text-dark">Address</label>
+                  <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-2 w-100 eyra-register-btn">
+                  Create Account
+                </button>
+
+                <a href="/login" class="d-block mt-3 text-center eyra-register-link">
+                  Already have an account?
+                </a>
+
+              </form>
+
+
+              <% if(locals.msg) {%>
+              <div class="text-center text-success mt-3 fw-semibold">
+                <h5><%=msg%></h5>
+              </div>
+
+
+            </div>
+
+
+          
+
+          
+
+              <script>
+                function hide_message() 
+                {
+                  document.getElementById("result").InnerText = "";
+                }
+                setTimeout(hide_message, 2000);
+              </script>
+
+              <% } %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('Appointment_Form/Form.ejs') %>
+    <%- include('chat/chat.ejs') %>
+    <%- include('Footer/Home_Footer.ejs') %>
+    <%- include('CDN/javascript.ejs') %>
+
+</body>
+
+</html>
